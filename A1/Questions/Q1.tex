@@ -1,0 +1,52 @@
+\section{}
+% The metronome shown is used as a timing device for musicians. The essence of the device is an 
+% inverted ‘T’ mounted on springs mounted on springs. The natural frequency of the device is varied 
+% by moving the mass 𝑚 to different heights 𝐿.
+
+% Assuming that the system undergoes only small oscillations about the axis through point 𝑂 (the 
+% static equilibrium configuration is at 𝜃 = 0):
+% (5 pts) Determine the equation of motion of the system using 𝜽 as your coordinate. 
+% Neglect the mass of the ‘T’ bar. Be sure to include the force of gravity as there is no static 
+% deflection of the springs in the static equilibrium configuration.
+% b) (5 pts) What is the limiting value of 𝐿 so that the system is stable?
+
+The metronome shown is used as a timing device for musicians. The essence of the device is an
+inverted 'T' mounted on springs. The natural frequency of the device is varied by moving the mass
+$m$ to different heights $L$.
+
+Assuming that the system undergoes only small oscillations about the axis through point $O$ (the
+static equilibrium configuration is at $\theta = 0$):
+\begin{enumerate}[label=(\alph*)]
+    \item (5 pts) Determine the equation of motion of the system using $\theta$ as your coordinate.
+        Neglect the mass of the 'T' bar. Be sure to include the force of gravity as there is no
+        static deflection of the springs in the static equilibrium configuration.
+    \item (5 pts) What is the limiting value of $L$ so that the system is stable?
+\end{enumerate}
+
+\subsection*{Solution}
+\subsection{}
+From the free body diagram and mass acceleration diagram, we can take the moment about the 
+pivot point $O$ to get the equation of motion:
+\begin{gather*}
+    \circlearrowleft \sum M_O = J_O \ddot{\theta} \\
+    \implies F_{k1} b \cos \theta - F_{k2} b \cos \theta - mg L \sin \theta = J_O \ddot{\theta} \\
+    \implies -mg L \sin\theta = mL^2 \ddot{\theta} \\
+    \implies -\frac{g}{L} \sin\theta = \ddot{\theta}
+\end{gather*}
+So the equation of motion is:
+\begin{align*}
+    \Aboxed{\ddot{\theta} + \frac{g}{L} \sin\theta &= 0}
+\end{align*}
+
+\subsection{}
+Applying linearization, we get:
+\begin{align*}
+    \ddot{\theta} + \frac{g}{L} \theta &= 0
+\end{align*}
+From differential equations, the solution is bounded if the roots of the characteristic equation
+have negative real parts. Therefore,
+\begin{align*}
+    \frac{g}{L} &> 0 \\
+    \Aboxed{\implies L &> 0}
+\end{align*}
+So the limiting value of $L$ so that the system is stable is $L = 0$.
