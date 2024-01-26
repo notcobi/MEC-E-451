@@ -162,11 +162,18 @@ For the time to reach 8\% of the maximum amplitude, (eq. 3.20) can be used to fi
 \begin{align*}
     \frac{\ln(x_n / x_{n+m}) \sqrt{1 - \zeta^2}}{2\pi\zeta} &= m 
 \end{align*}
-then let $x_n/x_{n+m} = 1/0.08 = 12.5$. So,
+then let $n = 0$, $x_0/x_{0+m} = 1/0.08 = 12.5$. So,
 \begin{align*}
     m &= \frac{\ln(12.5) \sqrt{1 - 0.0801^2}}{2\pi \times 0.0801} = 5.00
 \end{align*}
-so the time can be found by
+since the response is a sinusoid, the time from zero to the first peak is
 \begin{align*}
-    \Aboxed{t &= m \tau = 5 \times \frac{2\pi}{\sqrt{1- \zeta^2}p} = 5 \times \frac{2\pi}{\sqrt{1- 0.0801^2} \times 39.9} = 0.790 \text{s}}
+    t_{\text{zero to peak}} &= \frac{\tau}{4}
+\end{align*}
+So the total time is
+\begin{align*}
+    t_{\text{total}} &= m \tau + \frac{\tau}{4} \\
+    &= \tau \left(5 + \frac{1}{4}\right) \\
+    &= \frac{2\pi}{\sqrt{1 - 0.0801^2} \times 39.9} \left(5 + \frac{1}{4}\right) \\
+    &= \boxed{0.829 \text{s}}
 \end{align*}
