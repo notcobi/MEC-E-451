@@ -11,11 +11,6 @@ The geometric arrangement and interconnection of these components are depicted i
     \caption{The pendulum system connected to a spring}
     \label{fig:q3-png}
 \end{figure}
-% a) (5 pts) Derive the equation of motion for this system using the energy method.
-% b) (3 pts) Linearize the equation of motion and derive a formula for the natural frequency of the 
-% system.
-% c) (2 pts) Compare the natural frequency of this system with the case where there is no spring.
-
 \begin{enumerate}[label=(\alph*)]
     \item (5 pts) Derive the equation of motion for this system using the energy method.
     \item (3 pts) Linearize the equation of motion and derive a formula for the natural frequency of the 
@@ -42,7 +37,7 @@ So total energy is:
 \end{align*}
 Since the system is conservative, the total energy is constant. So,
 \begin{align*}
-    \frac{dE}{dt} &= 0 \\
+    \frac{dE}{dt} &:= 0 \\
     \frac{dE}{dt} &= m L^2 \dot{\theta} \ddot{\theta} + m g L \sin \theta \dot{\theta} + k L^2 \sin \theta \cos \theta \dot{\theta} 
 \end{align*}
 \begin{align*}
@@ -68,7 +63,10 @@ The natural frequency is given by:
 \subsection{}
 The natural frequency of a normal pendulum is given by:
 \begin{align*}
-    p_{\text{pendulum}} = \sqrt{\frac{g}{L}}
+    &p_{\text{pendulum}} = \sqrt{\frac{g}{L}} \\
+    &p_{\text{spring \& pendulum}} = \sqrt{\frac{g}{L} + \frac{k}{m}} 
 \end{align*}
-So the natural frequency of the system with the spring is greater than the natural frequency of the
-system without the spring due to the addition of the term $k/m$.
+The spring adds a term $k/m$ to the natural frequency of the system. Since $k/m > 0$,
+\begin{align*}
+    \Aboxed{\implies p_{\text{spring \& pendulum}} > p_{\text{pendulum}}}
+\end{align*}

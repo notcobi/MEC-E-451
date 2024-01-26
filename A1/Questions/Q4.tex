@@ -45,8 +45,7 @@ single cable with a radius of 2 cm and an elastic modulus of 100 GPa ($k = \frac
 
 \subsection*{Solution}
 \subsection{}
-The system acts as a simple spring-mass system with initial conditions $x(0) = 0$ and $\dot{x}(0) = 1.5$ m/s.
-Assume that the equilibrium position is at the basement floor level.
+The system acts as a simple spring-mass system with initial conditions $x(0) = 0$ and $\dot{x}(0) = 1.5$ m/s. Assume that the equilibrium position is at the basement floor level.
 
 The equation of motion is:
 \begin{align*}
@@ -99,3 +98,75 @@ The maximum stress in the cables is at the maximum displacement. So,
     \implies \sigma_{\text{loaded}, \text{max}} &= \frac{3.59 \times 10^6}{\pi (0.02)^2} \times 0.0376 = 107.3 \text{MPa}
 \end{empheq}
 
+\subsection{}
+An additional spring is added in series with the cable. For a simple oscillator, as seen in the Effective Stiffness Examples.pdf, the effective stiffness is given by:
+\begin{align*}
+    k_{\text{eff}} &= \frac{k_1 k_2}{k_1 + k_2}
+\end{align*}
+So the effective stiffness is:
+\begin{align*}
+    k_{\text{eff}} &= \frac{3.59 \times 10^6 \times 600 \times 10^3}{3.59 \times 10^6 + 600 \times 10^3} = 0.514 \text{Mn/m}
+\end{align*}
+So the new natural frequency for both cases is:
+\begin{align*}
+    p_{\text{unloaded}} &=  \sqrt{\frac{0.514 \times 10^6}{1200}} = 20.70 \text{rad/s} \\
+    p_{\text{loaded}} &=  \sqrt{\frac{0.514 \times 10^6}{1200 + 15 \times 70}} = 15.1 \text{rad/s}
+\end{align*}
+The overshoot of the cab is 
+\begin{empheq}[box=\fbox]{align*}
+    x_{\text{unloaded}, \text{overshoot}} &= \frac{1.5}{20.70} = 0.0725 \text{m} \\
+    x_{\text{loaded}, \text{overshoot}} &= \frac{1.5}{15.1} = 0.0993 \text{m}
+\end{empheq}
+The maximum acceleration is
+\begin{empheq}[box=\fbox]{align*}
+    \ddot{x}_{\text{unloaded}, \text{max}} &= 1.5 \times 20.70 = 31.1 \text{m/s}^2 \\
+    \ddot{x}_{\text{loaded}, \text{max}} &= 1.5 \times 15.1 = 22.7 \text{m/s}^2
+\end{empheq}
+The maximum stress in the cables is at the maximum displacement. So,
+\begin{align*}
+    \sigma_{\text{max}} &= \frac{k}{A} x_{\text{max}}
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+    \implies \sigma_{\text{unloaded}, \text{max}} &= \frac{0.514 \times 10^6}{\pi (0.02)^2} \times 0.0725 = 29.7 \text{MPa} \\
+    \implies \sigma_{\text{loaded}, \text{max}} &= \frac{0.514 \times 10^6}{\pi (0.02)^2} \times 0.0993 = 40.6 \text{MPa}
+\end{empheq}
+
+\subsection{}
+Using the unloaded system, the damping ratio can be found through the logarithmic decrement (eq. 3.19).
+\begin{align*}
+    \delta &= \ln\left(\frac{x_1}{x_2}\right) \\
+    \zeta &= \frac{\delta}{\sqrt{4\pi^2 + \delta^2}}
+\end{align*}
+where $x_1$ and $x_2$ are the amplitudes of the first and second peaks respectively. So then,
+\begin{align*}
+    \delta &= \ln\left(\frac{0.0274}{0.0274 \times 0.5}\right) = 0.6931 \\
+    \zeta &= \frac{0.6931}{\sqrt{4\pi^2 + 0.6931^2}} = 0.1096 
+\end{align*}
+From the definition of the damping ratio, 
+\begin{align*}
+    \zeta &= \frac{c}{2mp}
+\end{align*}
+So the damping coefficient is:
+\begin{align*}
+    c &= 2mp\zeta = 2 \times 1200 \times 54.7 \times 0.1096 = 14388.3 \text{N s/m}
+\end{align*}
+Calculating the damping ratio for the loaded case,
+\begin{empheq}[box=\fbox]{align*}
+    \zeta &= \frac{c}{2mp} \\
+    &= \frac{14388.3}{2 \times (1200 + 15 \times 70) \times 39.9} \\
+    &= 0.0801
+\end{empheq}
+
+\subsection{}
+For the time to reach 8\% of the maximum amplitude, (eq. 3.20) can be used to find the time from the zeroth peak to the m-th peak.
+\begin{align*}
+    \frac{\ln(x_n / x_{n+m}) \sqrt{1 - \zeta^2}}{2\pi\zeta} &= m 
+\end{align*}
+then let $x_n/x_{n+m} = 1/0.08 = 12.5$. So,
+\begin{align*}
+    m &= \frac{\ln(12.5) \sqrt{1 - 0.0801^2}}{2\pi \times 0.0801} = 5.00
+\end{align*}
+so the time can be found by
+\begin{align*}
+    \Aboxed{t &= m \tau = 5 \times \frac{2\pi}{\sqrt{1- \zeta^2}p} = 5 \times \frac{2\pi}{\sqrt{1- 0.0801^2} \times 39.9} = 0.790 \text{s}}
+\end{align*}
