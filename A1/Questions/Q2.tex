@@ -53,26 +53,48 @@ Since effective stiffness is defined as $M = k_{eff} \theta_2$, we get:
 \end{align*}
 
 \subsection{}
-Consider the total potential energy of the equivalent system
-\begin{align*}
-    U_{total} = \frac{1}{2} (k_{eff, \theta}) \theta^2
+The 5N applied generates a moment 
+\begin {align*}
+    M &= 5 \left(\frac{2L}{3} - \frac{L}{2}\right)  = 5 \left(\frac{2 (3)}{3} - \frac{3}{2}\right) = 2.5 \text{ Nm}
 \end{align*}
-Different coordinates are just different ways to describe the same system, so the total potential energy 
-is the same regardless of what coordinates you use. So,
+the effective stiffness is:
 \begin{align*}
-    U_{total} = \frac{1}{2} (k_{eff, \theta}) \theta^2 = \frac{1}{2} (k_{eff, x_2}) x_2^2
+    k_{eff} &= \frac{4 k_1 L^2}{9} + \frac{k_2 L^2}{9} \\
+    &= \frac{4 (100) (3)^2}{9} + \frac{(100) (3)^2}{9} \\
+    &= 400 + 100 \\
+    &= 500 \text{ Nm/rad}
 \end{align*}
-Using the small angle approximation, $x_2 = \frac{L}{3} \theta_2$, 
+so the angular displacement is:
 \begin{align*}
-    U_{total} = \frac{1}{2} (k_{eff, \theta}) \frac{9x_2^2}{L^2} &= \frac{1}{2} (k_{eff, x_2}) x_2^2 \\
-    \implies k_{eff, x_2} &= \frac{9}{L^2} k_{eff, \theta} \\
-    \implies k_{eff, x_2} &= \frac{9}{L^2} \left(\frac{4 k_1 L^2}{9} + \frac{k_2 L^2}{9}\right) \\
-    &= 4k_1 + k_2
+    \theta_2 &= \frac{M}{k_{eff}} \\
+    &= \frac{2.5}{500} \\
+    &= 0.005 \text{ rad}
 \end{align*}
-Now, we can use the stiffness approach to solve for the compression of spring $k_2$:
+using the small angle approximation, $x_2 = \frac{L}{3} \theta_2$,
 \begin{align*}
-    F &= k_{eff, x_2} x_2 \\
-    \implies x_2 &= \frac{F}{k_{eff, x_2}} \\
-    &= \frac{5}{4(100) + 100} \\
-    \Aboxed{\implies x_2 &= 0.01 \text{ m}}
+    x_2 &= \frac{3}{3} \times 0.005 \\
+    \Aboxed{\implies x_2 &= 0.005 \text{ m}}
 \end{align*}
+% Consider the total potential energy of the equivalent system
+% \begin{align*}
+%     U_{total} = \frac{1}{2} (k_{eff, \theta}) \theta^2
+% \end{align*}
+% Different coordinates are just different ways to describe the same system, so the total potential energy 
+% is the same regardless of what coordinates you use. So,
+% \begin{align*}
+%     U_{total} = \frac{1}{2} (k_{eff, \theta}) \theta^2 = \frac{1}{2} (k_{eff, x_2}) x_2^2
+% \end{align*}
+% Using the small angle approximation, $x_2 = \frac{L}{3} \theta_2$, 
+% \begin{align*}
+%     U_{total} = \frac{1}{2} (k_{eff, \theta}) \frac{9x_2^2}{L^2} &= \frac{1}{2} (k_{eff, x_2}) x_2^2 \\
+%     \implies k_{eff, x_2} &= \frac{9}{L^2} k_{eff, \theta} \\
+%     \implies k_{eff, x_2} &= \frac{9}{L^2} \left(\frac{4 k_1 L^2}{9} + \frac{k_2 L^2}{9}\right) \\
+%     &= 4k_1 + k_2
+% \end{align*}
+% Now, we can use the stiffness approach to solve for the compression of spring $k_2$:
+% \begin{align*}
+%     F &= k_{eff, x_2} x_2 \\
+%     \implies x_2 &= \frac{F}{k_{eff, x_2}} \\
+%     &= \frac{5}{4(100) + 100} \\
+%     \Aboxed{\implies x_2 &= 0.01 \text{ m}}
+% \end{align*}
