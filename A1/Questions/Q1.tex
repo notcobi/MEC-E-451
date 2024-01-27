@@ -12,7 +12,7 @@ static equilibrium configuration is at $\theta = 0$):
     \item (5 pts) What is the limiting value of $L$ so that the system is stable?
 \end{enumerate}
 
-\subsection*{Solution}
+\subsection*{Solution}  
 \subsection{}
 \begin{figure}[h]
     \centering
@@ -23,22 +23,22 @@ static equilibrium configuration is at $\theta = 0$):
 From the free body diagram and mass acceleration diagram, we can take the moment about the 
 pivot point $O$ to get the equation of motion:
 \begin{gather*}
-    \circlearrowleft \sum M_O = J_O \ddot{\theta} \\
-    \implies k b \cos \theta + k b \cos \theta - mg L \sin \theta = J_O \ddot{\theta} \\
-    \implies 2kb \cos\theta - mgL \sin\theta = mL^2 \ddot{\theta} \\
-    \implies \frac{2kb}{mL^2}\cos\theta -\frac{g}{L} \sin\theta = \ddot{\theta}
+    \circlearrowright \sum M_O = J_O \ddot{\theta} \\
+    \implies -k (b\sin\theta) (b \cos \theta) - k (b\sin\theta)(b \cos \theta) + mg L \sin \theta = J_O \ddot{\theta} \\
+    \implies -2kb^2 \sin\theta \cos\theta + mgL \sin\theta = mL^2 \ddot{\theta} \\
+    \implies -\frac{2kb^2}{mL^2}\cos\theta \sin\theta + \frac{g}{L} \sin\theta = \ddot{\theta}
 \end{gather*}
 So the equation of motion is:
 \begin{align*}
-    \Aboxed{\ddot{\theta} - \frac{2kb}{mL^2} \cos\theta + \frac{g}{L} \sin\theta &= 0}
+    \Aboxed{\ddot{\theta} + \left(\frac{2kb^2}{mL^2}\cos\theta - \frac{g}{L}\right) \sin\theta &= 0}
 \end{align*}
 \subsection{}
 Applying linearization, we get:
 \begin{align*}
-    \ddot{\theta} + \left(\frac{g}{L} - \frac{2kb}{mL^2}\right) \theta &= 0
+    \ddot{\theta} + \left(\frac{2kb^2}{mL^2} - \frac{g}{L}\right) \theta &= 0
 \end{align*}
 From differential equations, the solution is bounded if the roots of the characteristic equation have negative real parts. Therefore,
 \begin{align*}
-    \frac{g}{L} - \frac{2kb}{mL^2} &\geq 0 \\
-    \Aboxed{L &\geq \frac{2kb}{mg}}
+    \frac{2kb^2}{mL^2} - \frac{g}{L} &\geq 0 \\
+    \Aboxed{L &\leq \frac{2kb^2}{mg}}
 \end{align*}

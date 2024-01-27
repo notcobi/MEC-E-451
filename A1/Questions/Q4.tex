@@ -82,7 +82,7 @@ The overshoot of the cab is simply the amplitude of the solution. So,
 
 To find the maximum acceleration, we can take the second derivative of the solution 
 \begin{align*}
-    \ddot{x} &= -1.5 p \cos (pt)
+    \ddot{x} &= -1.5 p \sin (pt)
 \end{align*}
 The maximum acceleration is the amplitude of the second derivative. So,
 \begin{empheq}[box=\fbox]{align*}
@@ -91,11 +91,12 @@ The maximum acceleration is the amplitude of the second derivative. So,
 \end{empheq}
 The maximum stress in the cables is at the maximum displacement. So,
 \begin{align*}
-    \sigma_{\text{max}} &= \frac{k}{A} x_{\text{max}}  
+    \sigma_{\text{max}} &= \frac{kx_{\text{max}} + mg}{A}
 \end{align*}
+
 \begin{empheq}[box=\fbox]{align*}
-    \implies \sigma_{\text{unloaded}, \text{max}} &= \frac{3.59 \times 10^6}{\pi (0.02)^2} \times 0.0274 = 78.35 \text{MPa} \\
-    \implies \sigma_{\text{loaded}, \text{max}} &= \frac{3.59 \times 10^6}{\pi (0.02)^2} \times 0.0376 = 107.3 \text{MPa}
+    \implies \sigma_{\text{unloaded}, \text{max}} &= \frac{3.59 \times 10^6 \times 0.0274 + 1200 \times 9.81}{\pi (0.02)^2} = 87.6 \text{MPa} \\
+    \implies \sigma_{\text{loaded}, \text{max}} &= \frac{3.59 \times 10^6 \times 0.0376 + (1200 + 15 \times 70) \times 9.81}{\pi (0.02)^2} = 125 \text{MPa}
 \end{empheq}
 
 \subsection{}
@@ -124,23 +125,23 @@ The maximum acceleration is
 \end{empheq}
 The maximum stress in the cables is at the maximum displacement. So,
 \begin{align*}
-    \sigma_{\text{max}} &= \frac{k}{A} x_{\text{max}}
+    \sigma_{\text{max}} &= \frac{kx_{\text{max}} + mg}{A}
 \end{align*}
 \begin{empheq}[box=\fbox]{align*}
-    \implies \sigma_{\text{unloaded}, \text{max}} &= \frac{0.514 \times 10^6}{\pi (0.02)^2} \times 0.0725 = 29.7 \text{MPa} \\
-    \implies \sigma_{\text{loaded}, \text{max}} &= \frac{0.514 \times 10^6}{\pi (0.02)^2} \times 0.0993 = 40.6 \text{MPa}
+    \implies \sigma_{\text{unloaded}, \text{max}} &= \frac{0.514 \times 10^6 \times 0.0725 + 1200 \times 9.81}{\pi (0.02)^2} = 39.0 \text{MPa} \\
+    \implies \sigma_{\text{loaded}, \text{max}} &= \frac{0.514 \times 10^6 \times 0.0993 + (1200 + 15 \times 70) \times 9.81}{\pi (0.02)^2} = 58.2 \text{MPa}
 \end{empheq}
 
 \subsection{}
 Using the unloaded system, the damping ratio can be found through the logarithmic decrement (eq. 3.19).
 \begin{align*}
-    \delta &= \ln\left(\frac{x_1}{x_2}\right) \\
+    \delta &= \frac{1}{q} \ln\left(\frac{x_{p}}{x_{p+q}}\right) \\
     \zeta &= \frac{\delta}{\sqrt{4\pi^2 + \delta^2}}
 \end{align*}
-where $x_1$ and $x_2$ are the amplitudes of the first and second peaks respectively. So then,
+since $x_{0} / x_{0 + 2} = 1/0.5 = 2$. So,
 \begin{align*}
-    \delta &= \ln\left(\frac{0.0274}{0.0274 \times 0.5}\right) = 0.6931 \\
-    \zeta &= \frac{0.6931}{\sqrt{4\pi^2 + 0.6931^2}} = 0.1096 
+    \delta &= \frac{1}{2} \ln(2) = 0.3466 \\
+    \zeta &= \frac{0.3466}{\sqrt{4\pi^2 + 0.3466^2}} = 0.055079
 \end{align*}
 From the definition of the damping ratio, 
 \begin{align*}
@@ -148,32 +149,33 @@ From the definition of the damping ratio,
 \end{align*}
 So the damping coefficient is:
 \begin{align*}
-    c &= 2mp\zeta = 2 \times 1200 \times 54.7 \times 0.1096 = 14388.3 \text{N s/m}
+    c &= 2mp\zeta = 2 \times 1200 \times 54.7 \times 0.055079 = 7230.77 \text{N s/m}
 \end{align*}
 Calculating the damping ratio for the loaded case,
 \begin{empheq}[box=\fbox]{align*}
     \zeta &= \frac{c}{2mp} \\
-    &= \frac{14388.3}{2 \times (1200 + 15 \times 70) \times 39.9} \\
-    &= 0.0801
+    &= \frac{7230.77}{2 \times (1200 + 15 \times 70) \times 39.9} \\
+    &= 0.0403
 \end{empheq}
 
 \subsection{}
 For the time to reach 8\% of the maximum amplitude, (eq. 3.20) can be used to find the time from the zeroth peak to the m-th peak.
 \begin{align*}
-    \frac{\ln(x_n / x_{n+m}) \sqrt{1 - \zeta^2}}{2\pi\zeta} &= m 
+    \frac{\ln(x_p / x_{p+q}) \sqrt{1 - \zeta^2}}{2\pi\zeta} &= q
 \end{align*}
-then let $n = 0$, $x_0/x_{0+m} = 1/0.08 = 12.5$. So,
+then let $n = 0$, $x_0/x_{0+q} = 1/0.08 = 12.5$. So,
 \begin{align*}
-    m &= \frac{\ln(12.5) \sqrt{1 - 0.0801^2}}{2\pi \times 0.0801} = 5.00
+    q &= \frac{\ln(12.5) \sqrt{1 - 0.0403^2}}{2\pi \times 0.0403} \\
+    &= 10
 \end{align*}
-since the response is a sinusoid, the time from zero to the first peak is
+since the response is $\sin$, the time from the start to the first peak is
 \begin{align*}
     t_{\text{zero to peak}} &= \frac{\tau}{4}
 \end{align*}
 So the total time is
 \begin{align*}
-    t_{\text{total}} &= m \tau + \frac{\tau}{4} \\
-    &= \tau \left(5 + \frac{1}{4}\right) \\
-    &= \frac{2\pi}{\sqrt{1 - 0.0801^2} \times 39.9} \left(5 + \frac{1}{4}\right) \\
-    &= \boxed{0.829 \text{s}}
+    t_{\text{total}} &= q \tau + \frac{\tau}{4} \\
+    &= \tau \left(10 + \frac{1}{4}\right) \\
+    &= \frac{2\pi}{\sqrt{1 - 0.0403^2} \times 39.9} \left(10 + \frac{1}{4}\right) \\
+    &= \boxed{1.615 \text{s}}
 \end{align*}
