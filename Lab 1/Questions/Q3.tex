@@ -1,0 +1,27 @@
+\section{(3pt)}
+If each spring has a stiffness of 2.8 kN/m, calculate the mass of the platform.
+
+Experimentally, the period was determined to be 
+\begin{align*}
+    \tau = t_2 - t_1 = 0.231544 - 0.07047 = 0.161074
+\end{align*}
+We can determine natural frequency from from Eq. 3.15, 
+\begin{align*}
+    \tau &= \frac{2\pi}{\sqrt{1-\zeta^2} p} \\
+    \implies p &= \frac{2\pi}{\tau\sqrt{1-\zeta^2}} \\
+    &= \frac{2\pi}{0.161074\sqrt{1-0.01165^2}} \\
+    &= 39.012 \text{ rad/s}
+\end{align*}
+Then, by definition of the natural frequency,
+\begin{align*}
+    p &= \sqrt{\frac{k}{m}} \\
+    \implies m &= \frac{k}{p^2} \\
+    &= \frac{2.8\times 10^3}{39.012^2} \\
+    &= 1.8398 \text{ kg}
+\end{align*}
+Since the typical mass of a smartphone is 0.2 kg, the mass of the platform is 
+\begin{align*}
+   m_{\text{platform}} &= m_{\text{total}} - m_{\text{smartphone}} \\
+    &= 1.8398 - 0.2 \\
+    &= \boxed{1.6398 \text{ kg}}
+\end{align*}
