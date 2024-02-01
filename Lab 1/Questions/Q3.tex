@@ -1,5 +1,5 @@
 \section{(3pt)}
-If each spring has a stiffness of 2.8 kN/m, calculate the mass of the platform.
+\textit{If each spring has a stiffness of 2.8 kN/m, calculate the mass of the platform.}
 
 Experimentally, the period was determined to be 
 \begin{align*}
@@ -14,14 +14,15 @@ We can determine natural frequency from from Eq. 3.15,
 \end{align*}
 Then, by definition of the natural frequency,
 \begin{align*}
-    p &= \sqrt{\frac{k}{m}} \\
-    \implies m &= \frac{k}{p^2} \\
-    &= \frac{2.8\times 10^3}{39.012^2} \\
-    &= 1.8398 \text{ kg}
+    p &= \sqrt{\frac{k_{\text{eff}}}{m_{\text{eff}}}} \\
+    \implies m_{\text{eff}} &= \frac{k_{\text{eff}}}{p^2} \\
+    \implies m_{\text{eff}} &= \frac{4k}{p^2} \\
+    &= \frac{4 \times 2.8\times 10^3}{39.012^2} \\
+    &= \boxed{7.359 \text{ kg}}
 \end{align*}
 Since the typical mass of a smartphone is 0.2 kg, the mass of the platform is 
 \begin{align*}
-   m_{\text{platform}} &= m_{\text{total}} - m_{\text{smartphone}} \\
-    &= 1.8398 - 0.2 \\
-    &= \boxed{1.6398 \text{ kg}}
+   m_{\text{platform}} &= m_{\text{eff}} - m_{\text{smartphone}} \\
+    &= 7.359 - 0.2 \\
+    &= \boxed{7.159 \text{ kg}}
 \end{align*}
