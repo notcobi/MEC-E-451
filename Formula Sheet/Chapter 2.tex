@@ -1,0 +1,62 @@
+\begin{multicols*}{2}
+\section*{2. SDOF Systems}
+\subsection*{2.1 Undamped SDOF System}
+\subsubsection*{2.1.1 Equation of Motion}
+\begin{align*}
+    m_{\text{eff}} \ddot{x} + k_{\text{eff}}x &= 0 \\
+    \ddot{x} + p^2x &= 0
+\end{align*}
+where $p = \sqrt{\frac{k_{\text{eff}}}{m_{\text{eff}}}}$ is the natural frequency of the system. The general solution to this equation is
+\begin{align*}
+    x(t) = A\sin(pt) + B\cos(pt)
+\end{align*}
+If the system is subjected to initial conditions $x(0) = x_0$ and $\dot{x}(0) = v_0$, the solution becomes
+\begin{align*}
+    x(t) = \left(\frac{v_0}{p}\right)\sin(pt) + x_0\cos(pt)
+\end{align*}
+the single-term solution is
+\begin{align*}
+    x(t) = \sqrt{x_0^2 + \left(\frac{v_0}{p}\right)^2}\sin\left(pt + \phi\right) \\
+    \phi = \arctan\left(\frac{x_0}{v_0/p}\right)
+\end{align*}
+and period of oscillation is
+\begin{align*}
+    \tau = \frac{2\pi}{p}
+\end{align*}
+
+\subsubsection{2.1.2 Energy Methods}
+When a spring is displaced from its equilibrium position by some $x$, the potential energy stored in the spring is
+\begin{align*}
+    U = \frac{1}{2}kx^2
+\end{align*}
+Similarly, the kinetic energy of the mass is
+\begin{align*}
+    T = \frac{1}{2}m\dot{x}^2
+\end{align*}
+
+\subsection{2.2 Spring-Mass Vertical Systems}
+All equations hold from the previous section if you consider the spring from its equilibrium position. If the spring is considered at its unstretched length, then $X_0$, the static deflection, is added to the displacement $x$.
+
+\subsection{2.3 Equivalent Mass and Stiffness}
+\subsubsection{2.3.1 Equivalent Mass}
+Effective mass can be found by finding the total kinetic energy of the system and equating it to the kinetic energy of an effective mass $m_{\text{eff}}$.
+\begin{align*}
+    T = \frac{1}{2}m_{\text{eff}}\dot{q}^2 = \sum \frac{1}{2}m_i\dot{q}_i^2
+\end{align*}
+where $q$ is the generalized coordinate.
+
+\subsubsection{2.3.2 Equivalent Stiffness}
+Similarly, effective stiffness can be found by equating the total potential energy of the system to the potential energy of an effective spring $k_{\text{eff}}$.
+\begin{align*}
+    U = \frac{1}{2}k_{\text{eff}}q^2 = \sum \frac{1}{2}k_iq_i^2
+\end{align*}
+however, stiffness and flexibility approaches are preferred. For the stiffness approach, apply a unit displacement ($\Delta$ or $\theta = 1$) then find the force or moment. For the flexibility approach, apply a unit force or moment ($F = 1$ or $M = 1$) then find the displacement or angle. Assume the system is static. 
+
+For linear and angular displacements respectively,
+\begin{align*}
+    F &= k_{\text{eff}} \Delta \\
+    M &= k_{\text{eff}} \theta
+\end{align*}
+
+
+\end{multicols*}

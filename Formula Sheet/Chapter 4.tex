@@ -1,0 +1,47 @@
+\begin{multicols*}{2}
+\section*{4. Forced Vibrations of SDOF Systems}
+\subsection*{4.1 Simple Spring-Mass Systems}
+Consider a simple spring mass system that is forced by $F_0 \sin(\omega t)$ in the direction of motion. The equation of motion is
+\begin{align*}
+    m\ddot{x} + c\dot{x} + kx = F_0\sin(\omega t)
+\end{align*}
+The solution is 
+\begin{align*}
+    x(t) = x_{H}(t) + x_{P}(t)
+\end{align*}
+Recall from Section 2.1.1 that the homogeneous solution is
+\begin{align*}
+    x_H(t) = A\sin(pt) + B\cos(pt)
+\end{align*}
+The particular solution can be found using the method of undetermined coefficients by assuming $x_P(t) = C\sin(\omega t) + D\cos(\omega t)$. The particular solution is
+\begin{align*}
+    x_P(t) = \frac{F_0}{k - m\omega^2}\sin(\omega t)
+\end{align*}
+So, the total response is
+\begin{align*}
+    x(t) = A\sin(pt) + B\cos(pt) + \frac{F_0}{k - m\omega^2}\sin(\omega t)
+\end{align*}
+Since most real systems have damping to some degree, we consider only the forced response, which comes from the particular solution. So let the steady state solution be
+\begin{align*}
+    x(t) &= \frac{F_0}{k - m\omega^2}\sin(\omega t) \\
+    &= \frac{F_0}{k} \frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\sin(\omega t) \\
+    &= X \sin(\omega t)
+\end{align*}
+Defining static deflection as 
+\begin{align*}
+    X_0 = \frac{F_0}{k} \frac{1}{1 - \left(\frac{\omega}{p}\right)^2}
+\end{align*}
+then, the dynamic magnification factor is
+\begin{align*}
+    \text{DMF} = \frac{X}{X_0} = \frac{1}{\sqrt{1 - \left(\frac{\omega}{p}\right)^2}}
+\end{align*}
+
+\subsubsection*{4.1.1 Resonance Response}
+A different form for the particular solution is used when the system is at resonance. By assuming the form $x_P(t) = C t \sin(\omega t) + D t \cos(\omega t)$, the particular solution is
+\begin{align*}
+    x_P(t) = - \frac{F_0 t}{2mp} \sin(\omega t)
+\end{align*}
+
+
+\end{multicols*}
+

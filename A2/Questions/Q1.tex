@@ -16,6 +16,9 @@ following questions using this graph. Clearly indicate the values you obtain fro
     t = 0.25 sec.
 \end{enumerate}
 
+\subsection*{Solution}
+\subsection{}
+
 Notice that the graph exhibits the behaviour of a damped cosine wave. Using $x_0= 5$ and $x_3 = 2$, 
 \begin{align*}
     \delta &= \frac{1}{n} \ln\left(\frac{x_0}{x_3}\right) \\
@@ -47,3 +50,23 @@ substituting in the values we found, we get
     \ddot{x} + 2(0.048553)(62.91)\dot{x} + (62.91)^2x = 0 \\
     \boxed{\ddot{x} + 6.11\dot{x} + 3957.7x = 0}
 \end{gather*}
+
+\subsection{}
+The general solution to the damped SDOF system is given by
+\begin{align*}
+    x(t) = e^{-\zeta p t}\left(A\sin\left(\sqrt{1-\zeta^2}pt\right) + B\cos\left(\sqrt{1-\zeta^2}pt\right)\right)
+\end{align*}
+where $A$ and $B$ are constants. We can find these constants using the initial conditions. The initial displacement can be found from the graph to be 5 cm.
+\begin{align*}
+    x(0) &= 5 = A 
+\end{align*}
+Now, using initial velocity of 100 cm/sec, using (3.13) from the course notes, 
+\begin{align*}
+    x(t) = e^{-\zeta p t}\left(\frac{v_0 + \zeta p x_0}{\sqrt{1-\zeta^2}}\sin\left(\sqrt{1-\zeta^2}pt\right) + x_0\cos\left(\sqrt{1-\zeta^2}pt\right)\right)
+\end{align*}
+so,
+\begin{align*}
+    x(0.25) &= e^{-0.048553 \cdot 62.91 \cdot 0.25}\left(\frac{100 + 0.048553 \cdot 62.91 \cdot 5}{\sqrt{1-0.048553^2}}\sin\left(\sqrt{1-0.048553^2}62.91\cdot 0.25\right) \right. \\
+    &\quad \left. + 5\cos\left(\sqrt{1-0.048553^2}62.91\cdot 0.25\right)\right) \\
+    &= \boxed{-2.383 \text{ cm}}
+\end{align*}

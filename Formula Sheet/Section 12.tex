@@ -1,0 +1,42 @@
+\begin{multicols*}{2}
+\section*{12. Thermal Radiation Fundamentals}
+\subsection*{12.1. General Procedure}
+Most questions will ask for irradiation given some geometry and temperatures.
+\begin{enumerate}
+    \item Determine absorptivity $\alpha$, reflectivity $\rho$, and transmissivity $\tau$ using the geometry and material properties. 
+    Note that if two of these are known, the third can be found using $\alpha + \rho + \tau = 1$.
+    \item Use solid angle $\omega$, irradiation $G$, and intensity $I$ to find whatever is asked for
+\end{enumerate}
+\subsection*{12.2. Variable Definitions}
+\begin{itemize}
+    \item $\omega$: Solid angle
+    \item $G$: Irradiation
+    \item $I$: Intensity
+    \item $J$: Radiosity
+    \item $\dot{Q}$: Heat transfer rate
+    \item $\alpha$: Absorptivity
+    \item $\rho$: Reflectivity
+    \item $\tau$: Transmissivity
+    \item $\epsilon$: Emissivity
+    \item $\sigma$: Stefan-Boltzmann constant
+\end{itemize}
+
+\subsection*{12.3. Formulas}
+For $A \ll r^2$ (small area, far away from surface),
+\begin{align*}
+    \omega_{2-1} &:= \frac{A_2 \cos\theta_2}{r^2}\\
+    J_1 &:= \pi I_{1, e+r} = E_b + G_{\text{ref}} = \epsilon\sigma T_{1}^4  + \rho G_{1} \\ 
+    \dot{Q}_{1-2} &:= I_1 (A_1 \cos\theta_1) \omega_{2-1} \\
+    G_2 &:= \frac{\dot{Q}_{1-2}}{A_2} 
+\end{align*}
+Combining the above equations into $G_2$,
+\begin{align*}
+    G_2 &= \frac{(\epsilon\sigma T_{1}^4  + \rho G_{\text{1}})A_1 \cos\theta_1 \cos\theta_2}{\pi r^2} 
+\end{align*}
+For $\theta_1 = \theta_2 = \rho = 0$ and $\epsilon = 1$ for a blackbody,
+\begin{align*}
+    G_2 &= \frac{\sigma T_{1}^4 A_1}{\pi r^2} \\
+    \implies T_{1} &= \left(\frac{G_2 \pi r^2}{\sigma A_1}\right)^{1/4}
+\end{align*}
+
+\end{multicols*}
