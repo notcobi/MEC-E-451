@@ -1,72 +1,58 @@
 \section{}
-A machine component is modeled as a system comprising a pendulum and a spring, illustrated in 
-Fig 1. This setup combines gravitational and spring forces, with the pendulum contributing 
-rotational dynamics influenced by gravity, and the spring providing a proportional restoring force. 
-The geometric arrangement and interconnection of these components are depicted in Fig 1. 
-(Assumption: the rotation is small enough so that the spring only deflects horizontally.)
+National Institute of Nanotechnology (NINT) is a first generation Nano-research facility and the first of its kind in Canada. The facility is a six-storey building located on the University of Alberta Campus. Along with research offices, wet laboratories and clean nano-fab space, the facility features several ultra sensitive electron microscopes. In order for these microscopes to operate in the nanoscale, they must be provided with an extremely stable environment that is free from movement and vibration. One model of isolation setup for the electron microscopes is shown as (1) where an excitation displacement is applied to the base in response of floor vibration. The floor vibration is assumed to have a frequency of 50 Hz. The natural frequency of these whole setup is measured as 10 Hz.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{Questions/Figures/q3 problem diagram.png}
-    \caption{The pendulum system connected to a spring}
-    \label{fig:q3-png}
+    \includegraphics[width=0.5\textwidth]{Questions/Figures/q3 problem diagram.png}
 \end{figure}
+
 \begin{enumerate}[label=(\alph*)]
-    \item (5 pts) Derive the equation of motion for this system using the energy method.
-    \item (3 pts) Linearize the equation of motion and derive a formula for the natural frequency of the 
-        system.
-    \item (2 pts) Compare the natural frequency of this system with the case where there is no spring.
+    \item (4 pts) Estimate the amplitude of vibration of electron microscope by comparing it to the amplitude of the floor for the setup as (1).
+    \item (5 pts) The quality of the image from electron microscope is not satisfying since the amplitude is still too large. A dampler was added between the electron microscope and floor. What damping ratio should be chosen to make the amplitude of the vibration of electron microscope two times the amplitude in part a)?
+    \item (1 pts) If the damping ratio of the damper needs to be adjusted to increase the amplitude of vibration of electron microscope, should the laboratory staff adjust the damping factor up or down?
 \end{enumerate}
 
 \subsection*{Solution}
 \subsection{}
-First the total potential energy can be found using the pendulum mass and spring potential energy:
+First, we decide the proper model for the problem. An appropriate model is an undamped SDOF system with base excitation. Since the springs are in parallel, the stiffness is $k_{\text{eff}} = k$. The DMF for this system is 
 \begin{align*}
-    U_{\text{pendulum}} &= m g L (1 - \cos \theta) \\
-    U_{\text{spring}} &= \frac{1}{2} k (L \sin \theta)^2  \\
-    \implies U_{\text{total}} &= m g L (1 - \cos \theta) + \frac{1}{2} k (L \sin \theta)^2
+    \text{DMF} &= \frac{1}{1 - \left(\frac{\omega}{p}\right)^2}
 \end{align*}
-Next, the total kinetic energy can be found using the pendulum mass 
+substituting,
 \begin{align*}
-    T_{\text{pendulum}} &= \frac{1}{2} m \dot{x}^2  = \frac{1}{2} m (L \dot{\theta})^2 
+    \text{DMF} &= \frac{1}{1 - \left(\frac{50}{10}\right)^2} \\
+    &= \frac{1}{1 - 25} \\
+    &= -0.04167
 \end{align*}
-So total energy is:
-\begin{align*}
-    E &= T + U \\
-    \implies E &= \frac{1}{2} m (L \dot{\theta})^2 + m g L (1 - \cos \theta) + \frac{1}{2} k (L \sin \theta)^2
-\end{align*}
-Since the system is conservative, the total energy is constant. So,
-\begin{align*}
-    \frac{dE}{dt} &:= 0 \\
-    \frac{dE}{dt} &= m L^2 \dot{\theta} \ddot{\theta} + m g L \sin \theta \dot{\theta} + k L^2 \sin \theta \cos \theta \dot{\theta} 
-\end{align*}
-\begin{align*}
-    \implies \ddot{\theta} + \frac{g}{L} \sin \theta + \frac{k}{m} \sin \theta \cos \theta &= 0 \\
-    \Aboxed{\ddot{\theta} + \left(\frac{g}{L} + \frac{k}{m} \cos \theta\right) \sin \theta &= 0}
-\end{align*}
+This means that the amplitude of the electron microscope is $\boxed{4.167\%}$ of the amplitude of the floor. The negative sign indicated that the response of the electron microscope is 180 degrees out of phase with the floor.
 
 \subsection{}
-For small angles,
+For a damped SDOF system with base excitation, the DMF is
 \begin{align*}
-    \cos \theta &\approx 1 \\
-    \sin \theta &\approx \theta
+    \text{DMF} &= \frac{\sqrt{1+\left(2\zeta\frac{\omega}{p}\right)^{2}}}{\sqrt{\left[1-\left(\frac{\omega}{p}\right)^{2}\right]^{2}+\left[2\zeta\frac{\omega}{p}\right]^{2}}}
 \end{align*}
-So the equation of motion becomes:
+The DMF in a) was $1/24$, therefore we want the DMF to be $1/12$. 
 \begin{align*}
-    \ddot{\theta} + \left(\frac{g}{L} + \frac{k}{m}\right) \theta &= 0
+    \frac{1}{12} &= \frac{\sqrt{1+\left(2\zeta\frac{50}{10}\right)^{2}}}{\sqrt{\left[1-\left(\frac{50}{10}\right)^{2}\right]^{2}+\left[2\zeta\frac{50}{10}\right]^{2}}} 
 \end{align*}
-The natural frequency is given by:
-\begin{align*}
-    \Aboxed{p = \sqrt{\frac{g}{L} + \frac{k}{m}}}
-\end{align*}
+Solving for $\zeta$,
+\begin{verbatim}
+syms zeta
+eqn = 1/12 == sqrt(1+(2*zeta*5)^2)/sqrt((1-(5)^2)^2+(2*zeta*5)^2);
+zeta = solve(eqn, zeta);
+zeta = double(zeta)
+
+>> zeta =
+        -0.1738
+         0.1738
+\end{verbatim}
+Therefore, the damping ratio should be $\boxed{0.1738}$.
 
 \subsection{}
-The natural frequency of a normal pendulum is given by:
-\begin{align*}
-    &p_{\text{pendulum}} = \sqrt{\frac{g}{L}} \\
-    &p_{\text{spring \& pendulum}} = \sqrt{\frac{g}{L} + \frac{k}{m}} 
-\end{align*}
-The spring adds a term $k/m$ to the natural frequency of the system. Since $k/m > 0$,
-\begin{align*}
-    \Aboxed{\implies p_{\text{spring \& pendulum}} > p_{\text{pendulum}}}
-\end{align*}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Questions/Figures/q3 dmf diagram.png}
+    \caption{Response amplitude of damped spring–mass system subjected to harmonic base
+    excitation}
+\end{figure}
+Since we are operating on the RHS of the resonance peak, we should adjust the damping factor \textbf{up} to increase the amplitude of vibration of the electron microscope.

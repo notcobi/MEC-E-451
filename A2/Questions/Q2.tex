@@ -30,7 +30,10 @@ converting $f = 4$ Hz to $\omega = 2\pi f = 8\pi$ rad/sec, we can solve for $p$ 
 Since $p$ is defined as 
 \begin{align*}
     p &= \sqrt{\frac{k}{m}}\\
-    \implies k &= p^2m = (8\sqrt{2}\pi)^2 (5 \times 10^3) = 0.64\pi^2 \times 10^6 \text{ N/m} = 0.64\pi^2 \text{ MN/m}
+    \implies k &= p^2m \\
+    &= (8\sqrt{2}\pi)^2 (5 \times 10^3) \\
+    &= 0.64\pi^2 \times 10^6 \text{ N/m} \\
+    &= 0.64\pi^2 \text{ MN/m}
 \end{align*}
 and since $k = \frac{100}{L}$, we can solve for $L$,
 \begin{align*}
@@ -46,17 +49,59 @@ where $x$ is the distance from the equilibrium position, $A$ is the amplitude of
 \begin{align*}
     X &= A \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \\
     &= A \left(\frac{1}{1 - \frac{\omega^2}{k/m}}\right) \\
-    &= A \left(\frac{1}{1 - \frac{m \omega^2}{100/L}}\right) \\
-    &= A \left(\frac{1}{1 - \frac{mL \omega^2}{100}}\right) 
+    &= A \left(\frac{1}{1 - \frac{m \omega^2}{100/L \times 10^6}}\right) \\
+    &= A \left(\frac{1}{1 - \frac{mL \omega^2}{10^8}}\right) \\
 \end{align*}
 We require that the oscillation amplitude to be less than $h$. Let $X = h$, then
 \begin{align*}
-    h &= A \left(\frac{1}{1 - \frac{mL \omega^2}{100}}\right) 
+    h &= A \left(\frac{1}{1 - \frac{mL \omega^2}{10^8}}\right) \\
 \end{align*}
 By geometry, $L+h = 100$, so $L = 100 - h$. Substituting this into the equation, we can solve for $h$.
 \begin{align*}
-    h &= A \left(\frac{1}{1 - \frac{m(100-h) \omega^2}{100}}\right) \\
-    h &= 0.05 \left(\frac{1}{1 - \frac{5(100-h) (8\pi)^2}{100}}\right) 
+    h &= A \left(\frac{1}{1 - \frac{m(100-h) \omega^2}{10^8}}\right) \\
+    h &= 0.05 \left(\frac{1}{1 - \frac{5\times 10^3(100-h)(8\pi)^2}{10^8}}\right) \\
 \end{align*}
-Using 
+Using Matlab, 
+\begin{verbatim}
+syms h
+eqn = 0.05*(1/(1 - 5*10^3*(100-h)*(8*pi)^2/10^8)) == h;
+h = solve(eqn, h);
+h = double(h)
 
+>> h = -0.023158818068139
+        68.36028892983758
+\end{verbatim}
+The only physical solution is $\boxed{h = 68.36 \text{ m}}$. Note this is nearly at resonance.
+
+\subsection{}
+Let $h = 80$, and the operating range is $\omega > p$. Then, the DMF is
+\begin{align*}
+    \text{DMF} &= \frac{1}{\left(\frac{\omega}{p}\right)^2 - 1}
+\end{align*}
+Since the shaking specification is 4 cm, then
+\begin{align*}
+    \frac{4}{5} &= \frac{1}{\left(\frac{\omega}{p}\right)^2 - 1} \\
+    \frac{4}{5} &= \frac{1}{\left(\frac{8\pi}{p}\right)^2 - 1} \\
+\end{align*}
+Solving for $p$, 
+\begin{verbatim}
+syms p
+eqn = 4/5 == 1/((8*pi/p)^2 - 1);
+p = solve(eqn, p);
+p = double(p)
+
+>> p = -15.7003
+        15.7003
+\end{verbatim}
+The only physical solution is $p = 15.7$ rad/sec.
+By the definition of $p$,
+\begin{align*}
+    p &= \sqrt{\frac{k}{m}} \\
+    &= \sqrt{\frac{100/L \times 10^6}{m}} 
+\end{align*}
+Solving for $m$,
+\begin{align*}
+    m &= \frac{100/L \times 10^6}{p^2} \\
+    &= \frac{100/20 \times 10^6}{(15.7)^2} \\
+    &= \boxed{20.28 \times 10^3 \text{ kg}}
+\end{align*}
