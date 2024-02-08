@@ -31,11 +31,11 @@ From this, we can find the damping ratio $\zeta$,
     &= \frac{0.30543}{\sqrt{4\pi^2 + 0.30543^2}} \\
     &= 0.048553
 \end{align*}
-The period is $\tau = 0.1$ sec, so the natural frequency is 
+The period is $\tau = 0.2$ sec, so the natural frequency is 
 \begin{align*}
     p &= \frac{2\pi}{\sqrt{1-\zeta^2} \tau} \\
     &= \frac{2\pi}{\sqrt{1-0.048553^2} \cdot 0.1} \\
-    &= 62.91 \text{ rad/sec}
+    &= 31.45 \text{ rad/sec}
 \end{align*}
 Recall the equation of motion for a damped SDOF system,
 \begin{align*}
@@ -47,26 +47,17 @@ dividing by $m$ and letting $p^2 = \frac{k}{m}$ and $2\zeta p = \frac{c}{m}$, we
 \end{align*}
 substituting in the values we found, we get
 \begin{gather*}
-    \ddot{x} + 2(0.048553)(62.91)\dot{x} + (62.91)^2x = 0 \\
-    \boxed{\ddot{x} + 6.11\dot{x} + 3957.7x = 0}
+    \ddot{x} + 2(0.048553)(31.45)\dot{x} + (31.45)^2x = 0 \\
+    \boxed{\ddot{x} + 3.054\dot{x} + 989.1x = 0}
 \end{gather*}
 
 \subsection{}
-The general solution to the damped SDOF system is given by
+Now, using initial velocity of 100 cm/sec, and zero initial displacement, using (3.13) from the course notes, 
 \begin{align*}
-    x(t) = e^{-\zeta p t}\left(A\sin\left(\sqrt{1-\zeta^2}pt\right) + B\cos\left(\sqrt{1-\zeta^2}pt\right)\right)
-\end{align*}
-where $A$ and $B$ are constants. We can find these constants using the initial conditions. The initial displacement can be found from the graph to be 5 cm.
-\begin{align*}
-    x(0) &= 5 = A 
-\end{align*}
-Now, using initial velocity of 100 cm/sec, using (3.13) from the course notes, 
-\begin{align*}
-    x(t) = e^{-\zeta p t}\left(\frac{v_0 + \zeta p x_0}{\sqrt{1-\zeta^2}}\sin\left(\sqrt{1-\zeta^2}pt\right) + x_0\cos\left(\sqrt{1-\zeta^2}pt\right)\right)
+    x(t) = e^{-\zeta p t}\left(\frac{v_0 + \zeta p x_0}{\sqrt{1-\zeta^2} p}\sin\left(\sqrt{1-\zeta^2}pt\right) + x_0\cos\left(\sqrt{1-\zeta^2}pt\right)\right)
 \end{align*}
 so,
 \begin{align*}
-    x(0.25) &= e^{-0.048553 \cdot 62.91 \cdot 0.25}\left(\frac{100 + 0.048553 \cdot 62.91 \cdot 5}{\sqrt{1-0.048553^2}}\sin\left(\sqrt{1-0.048553^2}62.91\cdot 0.25\right) \right. \\
-    &\quad \left. + 5\cos\left(\sqrt{1-0.048553^2}62.91\cdot 0.25\right)\right) \\
-    &= \boxed{-2.383 \text{ cm}}
+    x(0.25) &= e^{-0.048553 \cdot 31.45 \cdot 0.25}\left(\frac{100 + 0}{\sqrt{1-0.048553^2}\cdot 31.45}\sin\left(\sqrt{1-0.048553^2}31.45\cdot 0.25\right) \right) \\
+    &= \boxed{2.173 \text{ cm}}
 \end{align*}

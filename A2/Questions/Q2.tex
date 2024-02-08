@@ -42,9 +42,21 @@ The steady state vibration of the system is given by
 \begin{align*}
     x(t) = A\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)
 \end{align*}
-where $x$ is the distance from the equilibrium position, $A$ is the amplitude, $\omega$ is the angular frequency of the excitation. Then, the amplitude is 
+where $x$ is the distance from the equilibrium position, $A$ is the amplitude of the forcing harmonic, $\omega$ is the angular frequency of the excitation. Then, the amplitude is 
 \begin{align*}
     X &= A \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \\
-    &= 0.05 \left(\frac{1}{1 - \left(\frac{8\pi}{8\sqrt{2}\pi}\right)^2}\right) \\
-    &= 0.1 \text{ m}
+    &= A \left(\frac{1}{1 - \frac{\omega^2}{k/m}}\right) \\
+    &= A \left(\frac{1}{1 - \frac{m \omega^2}{100/L}}\right) \\
+    &= A \left(\frac{1}{1 - \frac{mL \omega^2}{100}}\right) 
 \end{align*}
+We require that the oscillation amplitude to be less than $h$. Let $X = h$, then
+\begin{align*}
+    h &= A \left(\frac{1}{1 - \frac{mL \omega^2}{100}}\right) 
+\end{align*}
+By geometry, $L+h = 100$, so $L = 100 - h$. Substituting this into the equation, we can solve for $h$.
+\begin{align*}
+    h &= A \left(\frac{1}{1 - \frac{m(100-h) \omega^2}{100}}\right) \\
+    h &= 0.05 \left(\frac{1}{1 - \frac{5(100-h) (8\pi)^2}{100}}\right) 
+\end{align*}
+Using 
+
