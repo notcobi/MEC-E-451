@@ -1,0 +1,25 @@
+\begin{table}[h]
+    \centering
+    \caption{Steady State Solutions for unforced SDOF Systems}
+    \begin{tabular}{cc}
+        \toprule
+        System & Steady State Solution \\
+        \hline \\[-1ex]
+        Undamped Spring Mass & \(\displaystyle \frac{v_0}{p}\sin(pt) + x_0\cos(pt)\) \\[3ex]
+        Damped Spring Mass & \(\displaystyle e^{-\zeta pt}\left[\frac{v_0 + \zeta p x_0}{\sqrt{1 - \zeta^2}p}\sin(\sqrt{1 - \zeta^2}p t) + x_0 \cos(\sqrt{1 - \zeta^2} pt)\right]\) 
+    \end{tabular}
+\end{table} 
+
+\begin{table}[h]
+    \centering
+    \caption{Steady State Solutions for forced SDOF Systems}
+    \begin{tabular}{cccc}
+        \toprule
+        System & Steady State & DMF & Transmissibility \\
+        & & (or Amplitude Response) & \\
+        \hline \\[-1ex]
+        Forced Spring Mass & \(\displaystyle \left(\frac{F_0}{k}\right)\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|} \) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
+        Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e/k}{\big|1-\left(\frac{\omega}{p}\right)^2\bigg|}\sin(\omega t - \phi)\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
+        Base Excitation & \(\displaystyle a \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[3ex]
+    \end{tabular}
+\end{table}
