@@ -41,37 +41,60 @@ and since $k = \frac{100}{L}$, we can solve for $L$,
 \end{align*}
 
 \subsection{}
-The steady state vibration of the system is given by
+% redoing with better method
+The DMF is
 \begin{align*}
-    x(t) = A\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)
+    \frac{\mathbb{X}}{\mathbb{X}_0} &= \frac{1}{\bigg| 1 - \left(\frac{\omega}{p}\right)^2 \bigg|}
 \end{align*}
-where $x$ is the distance from the equilibrium position, $A$ is the amplitude of the forcing harmonic, $\omega$ is the angular frequency of the excitation. Then, the amplitude is 
+Since we want the amplitude to be equal to or greater than the height of the crate, we're interested in the region between resonance and the value where the amplitude is equal to the height of the crate. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Questions/Figures/q2 dmf.png}
+    \caption{Operating range for b)}
+\end{figure}
+First, let us find the point past resonance where the DMF is 
 \begin{align*}
-    X &= A \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \\
-    &= A \left(\frac{1}{1 - \frac{\omega^2}{k/m}}\right) \\
-    &= A \left(\frac{1}{1 - \frac{m \omega^2}{100/L \times 10^6}}\right) \\
-    &= A \left(\frac{1}{1 - \frac{mL \omega^2}{10^8}}\right) \\
+    \text{DMF} := \frac{\mathbb{X}}{\mathbb{X}_0} &= \frac{h}{0.05} \\
+    &= \frac{1}{\bigg| 1 - \left(\frac{\omega}{p}\right)^2 \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{m\omega^2}{k} \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{mL\omega^2}{100 \times 10^6} \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{m(100 - h)\omega^2}{10^8} \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{5 \times 10^3(100 - h)(8\pi)^2}{10^8} \bigg|} \\
 \end{align*}
-We require that the oscillation amplitude to be less than $h$. Let $X = h$, then
-\begin{align*}
-    h &= A \left(\frac{1}{1 - \frac{mL \omega^2}{10^8}}\right) \\
-\end{align*}
-By geometry, $L+h = 100$, so $L = 100 - h$. Substituting this into the equation, we can solve for $h$.
-\begin{align*}
-    h &= A \left(\frac{1}{1 - \frac{m(100-h) \omega^2}{10^8}}\right) \\
-    h &= 0.05 \left(\frac{1}{1 - \frac{5\times 10^3(100-h)(8\pi)^2}{10^8}}\right) \\
-\end{align*}
-Using Matlab, 
 \begin{verbatim}
 syms h
-eqn = 0.05*(1/(1 - 5*10^3*(100-h)*(8*pi)^2/10^8)) == h;
+eqn = 1/abs(1 - 5*10^3*(100-h)*(8*pi)^2/10^8) == h/0.05;
 h = solve(eqn, h);
 h = double(h)
 
->> h = -0.023158818068139
-        68.36028892983758
+>> h =
+        0.0232
+        68.3140
+        68.3603
 \end{verbatim}
-The only physical solution is $\boxed{h = 68.36 \text{ m}}$. Note this is nearly at resonance.
+The natural frequency at each of these points is
+\begin{align*}
+    p &= \sqrt{\frac{100}{(100-h)m} \times 10^6} \\
+    p_1 &= \sqrt{\frac{100}{(100 - 0.0232) \times 5 \times 10^3} \times 10^6} = 14.144 \\
+    p_2 &= \sqrt{\frac{100}{(100 - 68.314) \times 5 \times 10^3} \times 10^6} = 25.124 \\
+    p_3 &= \sqrt{\frac{100}{(100 - 68.3603) \times 5 \times 10^3} \times 10^6} = 25.142 
+\end{align*}
+Since the driving frequency is 8$\pi = 25.133$, and $\omega > p$, the only solution is $68.3403$ m.
+
+Now let's solve for resonance. This happens when the DMF is infinite, or when the denominator is zero. Then,
+\begin{align*}
+    1 - \frac{m(100 - h)\omega^2}{10^8} &= 0 
+\end{align*}
+\begin{verbatim}
+syms h
+eqn = 1 - 5*10^3*(100-h)*(8*pi)^2/10^8 == 0;
+h = solve(eqn, h);
+h = double(h)
+
+h =
+    68.3371
+\end{verbatim}
+So the possible heights are $\boxed{h = (68.337, 68.360] \text{ m}}$.
 
 \subsection{}
 Let $h = 80$, and the operating range is $\omega > p$. Then, the DMF is
