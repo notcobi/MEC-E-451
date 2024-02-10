@@ -60,80 +60,63 @@ Therefore, the natural frequency is $36.0438$ rad/sec. The spring constant is th
 \end{align*}
 
 \subsection{}
+\subsubsection{}
+The system now is a damped rotating imbalance where $M = 460$, $\tilde{m} = 0.3$.
 
+The response ampltitude curve is shown in the figure
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{Questions/Figures/q4 response ampltiude.png}
+\end{figure}
+\FloatBarrier
+The damping ratio is the same since effective mass has not changed.
+Then the response amplitude
+\begin{align*}
+    \frac{M \mathbb{X}}{\tilde{m} e} &= \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \zeta \frac{\omega}{p}\right]^2}} \\
+    &= \frac{\left(\frac{955 \times 2\pi/60}{36.0438}\right)^2}{\sqrt{\left[1 - \left(\frac{955 \times 2\pi/60}{36.0438}\right)^2\right]^2 + \left[2 \times 0.25 \times \frac{955 \times 2\pi/60}{36.0438}\right]^2}} \\
+    &= \boxed{1.1254}
+\end{align*}
+the amplitude is therefore,
+\begin{align*}
+    \mathbb{X} &= \frac{1.1254 \times 0.3 \times 0.25}{460} \\
+    &= \boxed{0.00018349 \text{ m}}
+\end{align*}
 
+\subsubsection{}
+The new system has $M = 459.7$, $\tilde{m} = 0.5$. Damping ratio needs to be recalcualted since the effective mass has changed. Since $c_{\text{eff}}$ is inherent to the system, we solve for it using values from part a),
+\begin{align*}
+    \zeta_{\text{a)}} &= \frac{c_{\text{eff}}}{2 m_{\text{eff}} p} \\
+    \implies c_{\text{eff}} &= 2 \zeta_{\text{a)}} m_{\text{eff}} p \\
+    &= 2 \times 0.25 \times (460) \times 36.0438 \\
+    &= 8290.074 \text{ Ns/m}
+\end{align*}
+Then the new damping ratio is
+\begin{align*}
+    \zeta &= \frac{8290.074}{2(459.7)36.0438} \\
+    &= 0.25016314988
+\end{align*}
 
-% This is an undamped SDOF with rotating imbalance. The transmissibility is (eq. 5.19)
-% \begin{align*}
-%     \text{TR} &= \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \zeta \frac{\omega}{p}\right]^2}}
-% \end{align*}
-% Substituting $\text{TR} = 0.25$, $\zeta = 0.25$, $\omega = 955 \times \frac{2\pi}{60}$, 
-% \begin{align*}
-%     0.25 &= \frac{\sqrt{1 + \left(2 \times 0.25 \times \frac{955 \times 2\pi/60}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{955 \times 2\pi/60}{p}\right)^2\right]^2 + \left[2 \times 0.25 \times \frac{955 \times 2\pi/60}{p}\right]^2}} 
-% \end{align*}
-% Solving for $p$,
-% \begin{verbatim}
-% syms p real
-% eqn = 0.25 == sqrt(1+(2*0.25*955*2*pi/60/p)^2) / ...
-% sqrt((1-(955*2*pi/60/p)^2)^2+(2*0.25*955*2*pi/60/p)^2);
-% p = solve(eqn, p);
-% p = double(p)
+The formula for response amplitude is 
+\begin{align*}
+    \frac{M \mathbb{X}}{\tilde{m} e} &\overset{\text{set}}{=} \frac{459.7 \cdot 0.00018349}{0.5 \cdot 0.25} = 0.674802824 \\
+    &= \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \zeta \frac{\omega}{p}\right]^2}} \\
+    &= \frac{\left(\frac{955 \times 2\pi/60}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{955 \times 2\pi/60}{p}\right)^2\right]^2 + \left[2 \cdot 0.25016314988 \cdot \frac{955 \times 2\pi/60}{p}\right]^2}}
+\end{align*}
+where we solve for $p$,
+\begin{verbatim}
+syms p
+eqn = 0.674802824 == (955*2*pi/60/p)^2/sqrt((1-(955*2*pi/60/p)^2)^2 ...
++(2*0.25016314988*955*2*pi/60/p)^2);
+p = solve(eqn, p);
+p = double(p)
 
-% >>p =
-%     -36.0438
-%      36.0438
-% \end{verbatim}
-% Therefore, the natural frequency is $36.0438$ rad/sec. The spring constant is then
-% \begin{align*}
-%     k &= p^2(M+ \tilde{m}) \\
-%     &= (36.0438)^2(450 + 10) \\
-%     &= \boxed{0.5976 \times 10^6 \text{ N/m}} 
-% \end{align*}
-
-% \subsection{}
-% \subsubsection{}
-% Since $\zeta$ was only given for the full load, we must find the $\zeta$ for the hoodie. By definition of $\zeta$,
-% \begin{align*}
-%     \zeta &= \frac{c_{\text{eff}}}{2 m_{\text{eff}} p} \\
-%     \implies c_{\text{eff}} &= 2 \zeta m_{\text{eff}} p \\
-%     &= 2 \times 0.25 \times (450 + 10) \times 36.0438 \\
-%     &= 8290.074 \text{ Ns/m}
-% \end{align*}
-% Therefore with a new $m_{\text{eff}} = 450 + 0.3$, 
-% \begin{align*}
-%     \zeta &= \frac{8290.074}{2(450 + 0.3)36.0438} \\
-%     &= 0.25539 
-% \end{align*}
-% From eq. 5.22, the ampltitude response is 
-% \begin{align*}
-%     \frac{M \mathbb{X}}{\tilde{m} e} &= \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \zeta \frac{\omega}{p}\right]^2}} 
-% \end{align*}
-% Substituting $\omega = 955 \times \frac{2\pi}{60}$, $p = 36.0438$, $\zeta = 0.25539$,
-% \begin{align*}
-%     \frac{M \mathbb{X}}{\tilde{m} e} &= \frac{\left(\frac{955 \times 2\pi/60}{36.0438}\right)^2}{\sqrt{\left[1 - \left(\frac{955 \times 2\pi/60}{36.0438}\right)^2\right]^2 + \left[2 \times 0.25539 \times \frac{955 \times 2\pi/60}{36.0438}\right]^2}} \\
-%     &= \boxed{1.1244} 
-% \end{align*}
-
-% \subsubsection{}
-% Again consider the amplitude response
-% \begin{align*}
-%     \frac{M \mathbb{X}}{\tilde{m} e} &= \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \zeta \frac{\omega}{p}\right]^2}} \\
-%     &= \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left[2 \frac{c_{\text{eff}}}{2 m_{\text{eff}} p} \frac{\omega}{p}\right]^2}}
-% \end{align*}
-% This time, let $M \mathbb{X}/\tilde{m} e = 1.1244$, $\omega = 955 \times \frac{2\pi}{60}$, $m_{\text{eff}} = 450 + 0.5$, $c_{\text{eff}} = 8290.074$, 
-% \begin{align*}
-%     1.1244 &= \frac{\left(\frac{955 \times 2\pi/60}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{955 \times 2\pi/60}{p}\right)^2\right]^2 + \left[2 \frac{8290.074}{2(450 + 0.5) p} \frac{955 \times 2\pi/60}{p}\right]^2}} 
-% \end{align*}
-% Solving for $p$,
-% \begin{verbatim}
-% syms p 
-% eqn = 1.1244 == (955*2*pi/60/p)^2/sqrt((1-(955*2*pi/60/p)^2)^2 ... 
-% +(2*8290.074/2/(450+0.5)*955*2*pi/60/p)^2);
-% p = solve(eqn, p);
-% p = double(p)
-
-% >>p =
-
-%     0x1 empty double column vector
-% \end{verbatim}
-% not good.
+p =
+    -150.8534
+     150.8534 
+\end{verbatim}
+Therefore, the natural frequency is $150.8534$ rad/sec. The spring constant is then
+\begin{align*}
+    k &= p^2(M+ \tilde{m})/4 \\
+    &= (150.8534)^2(459.7 + 0.5)/4 \\
+    &= \boxed{2.618 \times 10^6 \text{ N/m}}
+\end{align*}
