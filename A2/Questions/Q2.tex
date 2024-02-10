@@ -41,60 +41,84 @@ and since $k = \frac{100}{L}$, we can solve for $L$,
 \end{align*}
 
 \subsection{}
-% redoing with better method
-The DMF is
+% redoing with an even better method.
+The DMF is 
 \begin{align*}
-    \frac{\mathbb{X}}{\mathbb{X}_0} &= \frac{1}{\bigg| 1 - \left(\frac{\omega}{p}\right)^2 \bigg|}
+    \frac{\mathbb{X}}{\mathbb{X}_0} &= \frac{1}{\bigg| 1 - \left(\frac{\omega}{p}\right)^2 \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{m\omega^2}{k} \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{mL\omega^2}{100 \times 10^6} \bigg|} \\
+    &= \frac{1}{\bigg| 1 - \frac{m(100 - h)\omega^2}{10^8} \bigg|} 
 \end{align*}
-Since we want the amplitude to be equal to or greater than the height of the crate, we're interested in the region between resonance and the value where the amplitude is equal to the height of the crate. 
+Since we want the amplitude to be equal to or greater than the height of the crate, we're interested in the regions between resonance and the value where the amplitude is equal to the height of the crate.
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.5\textwidth]{Questions/Figures/q2 dmf.png}
     \caption{Operating range for b)}
 \end{figure}
-First, let us find the point past resonance where the DMF is 
+First, let use an inequality past resonance where the DMF is
 \begin{align*}
-    \text{DMF} := \frac{\mathbb{X}}{\mathbb{X}_0} &= \frac{h}{0.05} \\
-    &= \frac{1}{\bigg| 1 - \left(\frac{\omega}{p}\right)^2 \bigg|} \\
-    &= \frac{1}{\bigg| 1 - \frac{m\omega^2}{k} \bigg|} \\
-    &= \frac{1}{\bigg| 1 - \frac{mL\omega^2}{100 \times 10^6} \bigg|} \\
-    &= \frac{1}{\bigg| 1 - \frac{m(100 - h)\omega^2}{10^8} \bigg|} \\
-    &= \frac{1}{\bigg| 1 - \frac{5 \times 10^3(100 - h)(8\pi)^2}{10^8} \bigg|} \\
+    \frac{1}{\frac{m(100 - h)\omega^2}{10^8} - 1} &> \frac{h}{a} \\
+    1 &> \frac{h}{a} \left(\frac{m(100 - h)\omega^2}{10^8} - 1\right) \\
+    1 &> \frac{h}{a} \left(\frac{m(100 - h)\omega^2 - 10^8}{10^8}\right) \\
+    1 &> \frac{100m\omega^2h - m\omega^2h^2 - 10^8h}{10^8a} \\
+    0 &> \frac{(-m\omega^2)h^2 + (100m\omega^2 - 10^8)h - 10^8a}{10^8a} \\
+    0 &> (-m\omega^2)h^2 + (100m\omega^2 - 10^8)h - 10^8a 
 \end{align*}
+Substituting in the given values,
+\begin{align*}
+    0 &> (-5 \times 10^3(8\pi)^2)h^2 + (5 \times 10^3(8\pi)^2 \times 100 - 10^8)h - 10^8 \times 0.05 
+\end{align*}
+Solving for the zeros,
 \begin{verbatim}
 syms h
-eqn = 1/abs(1 - 5*10^3*(100-h)*(8*pi)^2/10^8) == h/0.05;
+eqn = (-5*10^3*(8*pi)^2)*h^2 + (5*10^3*(8*pi)^2*100 - 10^8)*h - 10^8*0.05 == 0;
 h = solve(eqn, h);
 h = double(h)
 
 >> h =
         0.0232
         68.3140
-        68.3603
 \end{verbatim}
-The natural frequency at each of these points is
+So then the inequality holds for 
 \begin{align*}
-    p &= \sqrt{\frac{100}{(100-h)m} \times 10^6} \\
-    p_1 &= \sqrt{\frac{100}{(100 - 0.0232) \times 5 \times 10^3} \times 10^6} = 14.144 \\
-    p_2 &= \sqrt{\frac{100}{(100 - 68.314) \times 5 \times 10^3} \times 10^6} = 25.124 \\
-    p_3 &= \sqrt{\frac{100}{(100 - 68.3603) \times 5 \times 10^3} \times 10^6} = 25.142 
+    \frac{h}{0.05} > \frac{1}{\left(\frac{\omega}{p}\right)^2 - 1} \implies 
+    \begin{cases}
+        0 < h < 0.0232 \\
+        68.3140 < h
+    \end{cases}
 \end{align*}
-Since the driving frequency is 8$\pi = 25.133$, and $\omega > p$, the only solution is $68.3403$ m.
-
-Now let's solve for resonance. This happens when the DMF is infinite, or when the denominator is zero. Then,
+Next, let us find where the inequality holds below resonance. This is
 \begin{align*}
-    1 - \frac{m(100 - h)\omega^2}{10^8} &= 0 
+    \frac{1}{1 - \frac{m(100 - h)\omega^2}{10^8}} &> \frac{h}{a} \\
+    1 &> \frac{h}{a} \left(1 - \frac{m(100 - h)\omega^2}{10^8}\right) \\
+    1 &> \frac{h}{a} \left(\frac{10^8 - m\omega^2(100 - h)}{10^8}\right) \\
+    1 &> \frac{10^8h - 100 m \omega^2h + m\omega^2h^2}{10^8a} \\
+    0 &> (m\omega^2)h^2 + (10^8 - 100m\omega^2)h - 10^8a 
 \end{align*}
+Substituting in the given values,
+\begin{align*}
+    0 &> (5 \times 10^3(8\pi)^2)h^2 + (10^8 - 5 \times 10^3(8\pi)^2 \times 100)h - 10^8 \times 0.05
+\end{align*}
+Solving for the zeros,
 \begin{verbatim}
 syms h
-eqn = 1 - 5*10^3*(100-h)*(8*pi)^2/10^8 == 0;
+eqn = (5*10^3*(8*pi)^2)*h^2 + (10^8 - 5*10^3*(8*pi)^2*100)*h - 10^8*0.05 == 0;
 h = solve(eqn, h);
 h = double(h)
 
 h =
-    68.3371
+    -0.0232
+    68.3603
 \end{verbatim}
-So the possible heights are $\boxed{h = (68.337, 68.360] \text{ m}}$.
+So then the inequality holds for
+\begin{align*}
+    \frac{h}{0.05} > \frac{1}{1 - \frac{m(100 - h)\omega^2}{10^8}} \implies 
+    \begin{cases}
+        -0.0232 < h 
+        h < 68.3603
+    \end{cases}
+\end{align*}
+Combining the inequalities, the possible heights are $\boxed{h = (0, 0.0232] \cup [68.3140, 68.3603] \text{ m}}$.
 
 \subsection{}
 Let $h = 80$, and the operating range is $\omega > p$. Then, the DMF is
@@ -113,10 +137,11 @@ eqn = 4/5 == 1/((8*pi/p)^2 - 1);
 p = solve(eqn, p);
 p = double(p)
 
->> p = -15.7003
-        15.7003
+>> p =
+    -16.7552
+     16.7552
 \end{verbatim}
-The only physical solution is $p = 15.7$ rad/sec.
+The only physical solution is $p = 16.755$ rad/sec.
 By the definition of $p$,
 \begin{align*}
     p &= \sqrt{\frac{k}{m}} \\
@@ -125,6 +150,6 @@ By the definition of $p$,
 Solving for $m$,
 \begin{align*}
     m &= \frac{100/L \times 10^6}{p^2} \\
-    &= \frac{100/20 \times 10^6}{(15.7)^2} \\
-    &= \boxed{20.28 \times 10^3 \text{ kg}}
+    &= \frac{100/20 \times 10^6}{(16.7552)^2} \\
+    &= \boxed{17.810 \times 10^3 \text{ kg}}
 \end{align*}
