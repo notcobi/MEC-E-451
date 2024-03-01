@@ -11,7 +11,7 @@
 
 \subsection*{Solution}
 \subsection{}
-This is a forced damped system with rotating imbalance. The amplitude of vibration is given from Eq. (4.11),
+This is a forced damped system with rotating imbalance. The amplitude of vibration is given from Eq. (5.18),
 \begin{align*}
     \mathbb{X} &= \frac{F_o/k}{\sqrt{\left[1 - \left(\frac{\omega}{p} \right)^2 \right]^2 + \left[2 \zeta \frac{\omega}{p} \right]^2}}
 \end{align*}
@@ -26,3 +26,16 @@ then,
 \end{align*}
 
 \subsection{}
+Transmissibility is given in Eq. (5.19),
+\begin{align*}
+    TR = \frac{F_{T_{\text{Max}}}}{F_o} &= \frac{\sqrt{1 + (2\zeta \frac{\omega}{p})^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p} \right)^2 \right]^2 + \left[2 \zeta \frac{\omega}{p} \right]^2}} 
+\end{align*}
+Substituting the known values,
+\begin{align*}
+    TR &= \frac{\sqrt{1 + (2 \times 0.2 \times \frac{3000}{798.95})^2}}{\sqrt{\left[1 - \left(\frac{3000}{798.95} \right)^2 \right]^2 + \left[2 \times 0.2 \times \frac{3000}{798.95} \right]^2}} \\
+    &= \boxed{0.1369}
+\end{align*}
+Then, the transmitted force to the base is,
+\begin{align*}
+    F_{T_{\text{Max}}} &= TR \times F_o = 0.1369 \times 350 = \boxed{47.92 \text{ N}}
+\end{align*}
