@@ -1,3 +1,4 @@
+\section{Steady State Solutions for unforced SDOF Systems}
 \begin{table}[h]
     \centering
     \caption{Steady State Solutions for unforced SDOF Systems}
@@ -10,16 +11,59 @@
     \end{tabular}
 \end{table} 
 
-\begin{table}[h]
-    \centering
-    \caption{Steady State Solutions for forced SDOF Systems}
-    \begin{tabular}{cccc}
+\section{Steady State Solutions for forced SDOF Systems}
+\begin{longtable}{cccc}
+    \caption{Steady State Solutions for forced SDOF Systems} \\
         \toprule
         System & Steady State & DMF & Transmissibility \\
         & & (or Amplitude Response) & \\
-        \hline \\[-1ex]
+        \midrule 
+        \multicolumn{4}{c}{Undamped Forced Spring Mass} \\
+        \midrule 
         Forced Spring Mass & \(\displaystyle \left(\frac{F_0}{k}\right)\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|} \) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
         Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e \omega^2/k}{\big|1-\left(\frac{\omega}{p}\right)^2\bigg|}\sin(\omega t - \phi)\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
-        Base Excitation & \(\displaystyle a \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[3ex]
-    \end{tabular}
-\end{table}
+        Base Excitation & \(\displaystyle a \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\
+        \midrule 
+        \multicolumn{4}{c}{Damped Forced Spring Mass} \\
+        \midrule
+        Forced Spring Mass & \(\displaystyle \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
+        Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e \omega^2 / k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
+        \multirow{2}{*}{Base Excitation} & \(\displaystyle \frac{a \sqrt{k^2 + (c \omega)^2}}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{a} = \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2 \sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\
+        & &\(\displaystyle \frac{\mathbb{Z}}{a} = \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \\
+        \bottomrule
+\end{longtable}
+General solution for 
+\begin{align*}
+    m_{\text{eff}} \ddot{x} + c_{\text{eff}} \dot{x} + k_{\text{eff}} x = F_0 \sin(\omega t - \alpha)
+\end{align*}
+is given by
+\begin{align*}
+    x(t) = \mathbb{X} \sin(\omega t - \alpha - \phi)
+\end{align*}
+where
+\begin{align*}
+    \mathbb{X} &= \frac{F_0}{\sqrt{\left(k_{\text{eff}} - m_{\text{eff}} \omega^2 \right)^2 + \left(c_{\text{eff}} \omega \right)^2}} 
+\end{align*}
+
+
+
+\section{Steady State Solutions for Forced Non-Harmonic SDOF Systems}
+The general steady state solution for a periodic ($\tau = 2\pi/\omega$) forced damped SDOF system is given by:
+\begin{align*}
+    x(t) = \frac{a_0}{2k} &+ \sum_{j = 1}^{\infty} \frac{a_j/k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\cos(j\omega t - \phi_j) \\
+    &+ \sum_{j = 1}^{\infty} \frac{b_j/k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\sin(j\omega t - \phi_j)
+\end{align*}
+where
+\begin{align*}
+    \phi_j &= \tan^{-1} \left[\frac{2\zeta\frac{\omega}{p}}{1 - \left(\frac{j \omega}{p}\right)^2}\right]\\
+    a_0 &= \frac{2}{\tau} \int_0^{\tau} F(t) dt = 2 F_{\text{avg}} \\
+    a_j &= \frac{2}{\tau} \int_0^{\tau} F(t) \cos(j\omega t) dt, \quad j = 1, 2, 3, \ldots \\
+    b_j &= \frac{2}{\tau} \int_0^{\tau} F(t) \sin(j\omega t) dt, \quad j = 1, 2, 3, \ldots
+\end{align*}
+Todo:
+add common solutions such as step, ramp,
+
+\section{Transient Response of SDOF Systems}
+
+
+

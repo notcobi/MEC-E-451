@@ -70,17 +70,17 @@ Finally,
 \subsection{}
 This is the standard form of a forced, damped harmonic oscillator. From Eq. (5.9) in the textbook, the amplitude is 
 \begin{align*}
-    \mathbb{X} &= \frac{F_o}{\sqrt{\left(k_{\text{eff}} - m_{\text{eff}} \omega^2 \right)^2 + \left(c_{\text{eff}} \omega \right)^2}}
+    \mathbb{Z} &= \frac{F_o}{\sqrt{\left(k_{\text{eff}} - m_{\text{eff}} \omega^2 \right)^2 + \left(c_{\text{eff}} \omega \right)^2}}
 \end{align*}
 Determining the effective mass, damping, and stiffness,
 \begin{align*}
     m_{\text{eff}} &= \frac{1}{2} m r^2 + m a^2 = \frac{1}{2} (2.25)(0.035)^2 + (2.25)(0.070)^2 = 0.0124 \\
     c_{\text{eff}} &= c a^2 = (30)(0.070)^2 = 0.147 \\
-    k_{\text{eff}} &= k a^2 + m g a = (8.75)(0.070)^2 + (2.25)(9.81)(0.070) = 1.58795 \\
+    k_{\text{eff}} &= k a^2 + m g a = (8.75\times 10^3)(0.070)^2 + (2.25)(9.81)(0.070) = 44.420\\
     F_o &= m a^2 A \omega^2 = (2.25)(0.070)^2 (2400 \times 2\pi / 60)^2 A= 696.3993 A
 \end{align*}
 Substituting into the amplitude equation,
 \begin{align*}
-    \mathbb{X} &= \frac{696.3993}{\sqrt{\left(1.58795 - 0.0124 (2400 \times 2\pi / 60)^2 \right)^2 + \left(0.147 (2400 \times 2\pi / 60) \right)^2}} A \\
-    &= \boxed{0.890 A}
+    \mathbb{Z} &= \frac{696.3993}{\sqrt{\left(44.420 - 0.0124 (2400 \times 2\pi / 60)^2 \right)^2 + \left(0.147 (2400 \times 2\pi / 60) \right)^2}}A \\
+    &= \boxed{0.9414 A}
 \end{align*}
