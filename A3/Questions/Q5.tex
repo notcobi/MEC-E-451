@@ -29,11 +29,11 @@ The freebody diagram is as follows,
 The equation of motion is given by,
 \begin{align*}
     \circlearrowleft \sum M_{O} &= I_O \ddot{\theta} \\
-    &= -k \sin\theta \cos\theta - mgl \sin\theta + T_f 
+    &= -k \sin\theta \cos\theta - mgl \sin\theta - T_f 
 \end{align*}
 Assuming small angle approximation, $\sin\theta \approx \theta$ and $\cos\theta \approx 1$,
 \begin{align*}
-    \underbrace{ml^2}_{m_{\text{eff}}} \ddot{\theta} + \underbrace{\left(k + mg\right)}_{k_{\text{eff}}} \theta = \underbrace{T_f}_{F_0}
+    \underbrace{ml^2}_{m_{\text{eff}}} \ddot{\theta} + \underbrace{\left(k + mg\right)}_{k_{\text{eff}}} \theta = \underbrace{-T_f}_{F_0}
 \end{align*}
 Assuming $T_f$ is constant, from (7.2),
 \begin{align*}
@@ -67,7 +67,7 @@ where,
 \begin{empheq}[box=\fbox]{align*}
     m_{\text{eff}} &= ml^2 \\
     k_{\text{eff}} &= k + mg \\
-    F_0 &= T_f \\
+    F_0 &= -T_f \\
     p &= \sqrt{\frac{k_{\text{eff}}}{m_{\text{eff}}}} 
 \end{empheq}
 The maximum angular acceleration is given by the amplitude, 
@@ -76,7 +76,7 @@ The maximum angular acceleration is given by the amplitude,
 \end{empheq}
 
 \subsection{}
-The response of the system with no friction can be given by letting $T_f =F_0= 0$. The response is then,
+The response of the system with no friction can be given by letting $T_f = -F_0= 0$. The response is then,
 \begin{align*}
     \theta(t) &= \left(\frac{\pi}{12} - \frac{0}{k_{\text{eff}}}\right) \cos pt + \frac{0}{k_{\text{eff}}} \\
     &= \boxed{\frac{\pi}{12} \cos pt}
