@@ -1,38 +1,41 @@
-\section{Steady State Solutions for unforced SDOF Systems}
+\section{System Response for Unforced SDOF Systems}
 \begin{table}[h]
     \centering
-    \caption{Steady State Solutions for unforced SDOF Systems}
-    \begin{tabular}{cc}
+    \caption{Steady State Solutions for Unforced SDOF Systems}
+    \begin{tabular}{lc}
         \toprule
-        System & Steady State Solution \\
+        System & Response \\
         \hline \\[-1ex]
         Undamped Spring Mass & \(\displaystyle \frac{v_0}{p}\sin(pt) + x_0\cos(pt)\) \\[3ex]
-        Damped Spring Mass & \(\displaystyle e^{-\zeta pt}\left[\frac{v_0 + \zeta p x_0}{\sqrt{1 - \zeta^2}p}\sin(\sqrt{1 - \zeta^2}p t) + x_0 \cos(\sqrt{1 - \zeta^2} pt)\right]\) 
+        Damped Spring Mass & \(\displaystyle e^{-\zeta pt}\left[\frac{v_0 + \zeta p x_0}{\sqrt{1 - \zeta^2}p}\sin(\sqrt{1 - \zeta^2}p t) + x_0 \cos(\sqrt{1 - \zeta^2} pt)\right]\) \\
+        \bottomrule
     \end{tabular}
 \end{table} 
 
-\section{Steady State Solutions for forced SDOF Systems}
-\begin{longtable}{cccc}
-    \caption{Steady State Solutions for forced SDOF Systems} \\
+\section{Steady State Solutions for Forced SDOF Systems}
+\begin{longtable}{lccc}
+    \caption{Steady State Solutions for Forced SDOF Systems} \\
         \toprule
         System & Steady State & DMF & Transmissibility \\
         & & (or Amplitude Response) & \\
-        \midrule 
+        \midrule \midrule
         \multicolumn{4}{c}{Undamped Forced Spring Mass} \\
         \midrule 
-        Forced Spring Mass & \(\displaystyle \left(\frac{F_0}{k}\right)\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|} \) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
-        Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e \omega^2/k}{\big|1-\left(\frac{\omega}{p}\right)^2\bigg|}\sin(\omega t - \phi)\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
-        Base Excitation & \(\displaystyle a \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\
+        Forced Spring Mass & \(\displaystyle \left(\frac{F_0}{k}\right)\left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right)\sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|} \) & \(\displaystyle \frac{F_{T_{\text{max}}}}{F_0} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
+        Rotating Imbalance & \(\displaystyle \frac{F_0/k}{\big|1-\left(\frac{\omega}{p}\right)^2\bigg|}\sin(\omega t - \phi)\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{F_{T_{\text{max}}}}{\tilde{m}e\omega^2} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\[6ex]
+        Base Excitation & \(\displaystyle a \left(\frac{1}{1 - \left(\frac{\omega}{p}\right)^2}\right) \sin(\omega t)\) & \(\displaystyle \frac{\mathbb{X}}{a} = \frac{1}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) & \(\displaystyle \frac{F_{T_{\text{max}}}}{ka} = \frac{\left(\frac{\omega}{p}\right)^2}{\bigg|1-\left(\frac{\omega}{p}\right)^2\bigg|}\) \\
         \midrule 
         \multicolumn{4}{c}{Damped Forced Spring Mass} \\
         \midrule
-        Forced Spring Mass & \(\displaystyle \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
-        Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e \omega^2 / k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
-        \multirow{2}{*}{Base Excitation} & \(\displaystyle \frac{a \sqrt{k^2 + (c \omega)^2}}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{a} = \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\left(\frac{\omega}{p}\right)^2 \sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\
+        % nondimensionalizing the amplitude response
+        %Forced Spring Mass & \(\displaystyle \frac{F_0}{\sqrt{(k - m\omega^2)^2 + (c\omega)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
+        Forced Spring Mass & \(\displaystyle \frac{F_0 / k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{\delta_{\text{ST}}} = \frac{1}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{F_{T_{\text{max}}}}{F_0} = \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
+        Rotating Imbalance & \(\displaystyle \frac{\tilde{m}e \omega^2 / k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{M \mathbb{X}}{\tilde{m} e} = \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{F_{T_{\text{max}}}}{\tilde{m}e \omega^2} = \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\[6ex]
+        \multirow{2}{*}{Base Excitation} & \(\displaystyle \frac{a \sqrt{k^2 + (c \omega)^2}/k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{\mathbb{X}}{a} = \frac{\sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \(\displaystyle \frac{F_{T_{\text{max}}}}{ka} = \frac{\left(\frac{\omega}{p}\right)^2 \sqrt{1 + \left(2 \zeta \frac{\omega}{p}\right)^2}}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) \\
         & &\(\displaystyle \frac{\mathbb{Z}}{a} = \frac{\left(\frac{\omega}{p}\right)^2}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}}\) & \\
         \bottomrule
 \end{longtable}
-General solution for 
+General solution for forced damped SDOF system \footnote[1]{$F_0$ for spring, imbalance, and excitation is $F_0$, $m e \omega^2$, and $a\sqrt{k^2+(c\omega)^2}$, respectively.} 
 \begin{align*}
     m_{\text{eff}} \ddot{x} + c_{\text{eff}} \dot{x} + k_{\text{eff}} x = F_0 \sin(\omega t - \alpha)
 \end{align*}
@@ -42,10 +45,8 @@ is given by
 \end{align*}
 where
 \begin{align*}
-    \mathbb{X} &= \frac{F_0}{\sqrt{\left(k_{\text{eff}} - m_{\text{eff}} \omega^2 \right)^2 + \left(c_{\text{eff}} \omega \right)^2}} 
+    \mathbb{X} &= \frac{F_0}{\sqrt{\left(k_{\text{eff}} - m_{\text{eff}} \omega^2 \right)^2 + \left(c_{\text{eff}} \omega \right)^2}} = \frac{F_0/k}{\sqrt{\left[1 - \left(\frac{\omega}{p}\right)^2\right]^2 + \left(2\zeta\frac{\omega}{p}\right)^2}} \\
 \end{align*}
-
-
 
 \section{Steady State Solutions for Forced Non-Harmonic SDOF Systems}
 The general steady state solution for a periodic ($\tau = 2\pi/\omega$) forced damped SDOF system is given by:
@@ -61,9 +62,23 @@ where
     b_j &= \frac{2}{\tau} \int_0^{\tau} F(t) \sin(j\omega t) dt, \quad j = 1, 2, 3, \ldots
 \end{align*}
 Todo:
-add common solutions such as step, ramp,
+add common solutions such as step, ramp. Ask TA if you can infer some coefficients are zero based on some symmetry.
 
-\section{Transient Response of SDOF Systems}
+\section{Transient Response of Spring-Mass Systems}
+\begin{table}[H]
+    \centering
+    \caption{Particular Response of Spring-Mass Systems}
+    \begin{tabular}{lll}
+        \toprule
+        Input & $F_0$ & Particular Response \\
+        \midrule
+        Step & $F_0 = F_1$ & $\displaystyle x_p(t) = \frac{F_1}{k}$ \\[2ex]
+        Ramp & $F_0 = \beta t$ & $\displaystyle x_p(t) = \frac{\beta}{k}t$ \\[2ex]
+        Exponential & $F_0 = F_1 e^{-at}$ & $\displaystyle x_p(t) = \frac{F_1}{ma^2 + k} e^{-at}$ \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+
 
 
 
