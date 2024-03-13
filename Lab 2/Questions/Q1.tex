@@ -32,6 +32,7 @@ From Table \ref{tab:main_results}, the largest measured displacement amplitude w
 
 \section{Question 2}
 \textit{Plot $\mathbb{X}$ vs. $\omega/p$ to obtain the frequency response curve of the system.}
+
 The data from Table \ref{tab:frequency_response} was plotted using Matplotlib in Python \cite{matplotlib}. The plot is shown in Figure \ref{fig:frequency_response_curve}. 
 \begin{figure}[H]
     \centering
@@ -42,7 +43,8 @@ The data from Table \ref{tab:frequency_response} was plotted using Matplotlib in
 
 \section{Question 3}
 \textit{Using your plot of $\mathbb{X}$ vs. $\omega/p$, estimate the damping ratio using the half-power bandwidth method. $\omega_1$ and $\omega_2$ can be determined using linear interpolation.}
-\begin{figure}[H]
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{Questions/Plots/X_vs_omega_p_with_lines.png}
     \caption{Annotated Amplitude vs. $\omega/p$ Response Curve}
@@ -91,32 +93,44 @@ Since there are two imbalances, the mass of a single imbalance is
 \section{Question 5}
 \textit{Estimate the natural frequency of the system using the vertical acceleration data recorded during beating of the platform and the motor frequency measured with the stroboscope.}
 
-The beating results are shown in Table \ref{tab:beating_results}. The maximum, minimum, and times were determined by inspection. The frequency was calculated by
+% The beating results are shown in Table \ref{tab:beating_results}. The maximum, minimum, and times were determined by inspection. The frequency was calculated by
+% \begin{align*}
+%     f_{\text{Phyphox}} &= \frac{1}{2(t_{\text{min}} - t_{\text{max}})} \\
+%     &= \frac{1}{2(3.249 - 3.349)} \\
+%     &= \boxed{4.969 \text{ Hz}}
+% \end{align*}
+
+% The natural frequency was also determined by stroboscope to be 
+% \begin{align*}
+%     f_{\text{Stroboscope}} &= \boxed{5 \text{ Hz}}
+% \end{align*}
+
+The period was determined from the beating results to be 
 \begin{align*}
-    f_{\text{Phyphox}} &= \frac{1}{2(t_{\text{min}} - t_{\text{max}})} \\
-    &= \frac{1}{2(3.249 - 3.349)} \\
-    &= \boxed{4.969 \text{ Hz}}
+    \tau_b &= t_{\text{node1}} - t_{\text{node2}} \\
+    &= 3.87756 - 2.77582 \\
+    &= 1.10174 \text{ s}
 \end{align*}
-
-The natural frequency was also determined by stroboscope to be 
+From the TA announcement, the formula for the natural frequency is given by
 \begin{align*}
-    f_{\text{Stroboscope}} &= \boxed{5 \text{ Hz}}
+    \tau_b &= \frac{2\pi}{\omega - p} \\
 \end{align*}
-
-
-\begin{table}[H]
-    \centering
-    \caption{Beating Z-Acceleration Results}
-    \label{tab:beating_results}
-    \begin{tabular}{C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.10\textwidth}C{0.15\textwidth}C{0.15\textwidth}}
-        \toprule
-        Max Acceleration, $a_{\text{max}}$ & Min Acceleration, $a_{\text{min}}$ & Time of Max, $t_{\text{max}}$ & Time of Min, $t_{\text{min}}$ & Acceleration Amplitude, $\mathbb{A}$ & Frequency, $f$ \\
-        (m/s$^2$) & (m/s$^2$) & (s) & (m/s$^2$) & (Hz) \\
-        \midrule
-        1.640 & -1.438 & 3.349 & 3.249 & 1.539 & 4.969 \\
-        \bottomrule
-    \end{tabular}
-\end{table}
-
-
-
+From using the stroboscope, the motor frequency was determined to be $f = 5 \text{ Hz}$. Then,
+\begin{align*}
+    \omega &= 2\pi f \\
+    &= 2\pi \times 5 \\
+    &= 31.416 \text{ rad/s}
+\end{align*}
+Then,
+\begin{align*}
+    p &= \omega - \frac{2\pi}{\tau} \\
+    &= 31.416 - \frac{2\pi}{1.10174} \\
+    &= 31.416 - 5.694 \\
+    &= 25.713 \text{ rad/s}
+\end{align*}
+Which is 
+\begin{align*}
+    f &= \frac{p}{2\pi} \\
+    &= \frac{25.713}{2\pi} \\
+    &= \boxed{4.09 \text{ Hz}}
+\end{align*}
