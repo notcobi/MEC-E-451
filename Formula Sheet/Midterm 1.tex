@@ -70,15 +70,29 @@ add common solutions such as step, ramp. Ask TA if you can infer some coefficien
     \caption{Particular Response of Spring-Mass Systems}
     \begin{tabular}{lll}
         \toprule
-        Input & $F_0$ & Particular Response \\
+        Input & $F_0(t)$ & Particular Response \\
         \midrule
-        Step & $F_0 = F_1$ & $\displaystyle x_p(t) = \frac{F_1}{k}$ \\[2ex]
-        Ramp & $F_0 = \beta t$ & $\displaystyle x_p(t) = \frac{\beta}{k}t$ \\[2ex]
-        Exponential & $F_0 = F_1 e^{-at}$ & $\displaystyle x_p(t) = \frac{F_1}{ma^2 + k} e^{-at}$ \\
+        Step & $F_0(t) = F_1$ & $\displaystyle x_p(t) = \frac{F_1}{k}$ \\[2ex]
+        Ramp & $F_0(t) = \beta t$ & $\displaystyle x_p(t) = \frac{\beta}{k}t$ \\[2ex]
+        Exponential & $F_0(t) = F_1 e^{-at}$ & $\displaystyle x_p(t) = \frac{F_1}{ma^2 + k} e^{-at}$ \\
         \bottomrule
         \end{tabular}
 \end{table}
 
-
-
-
+\section{Multiple Degree of Freedom Systems}
+\subsection{Unforced Undamped Systems}
+For an $N$ degree of freedom system, 
+\begin{itemize}
+    \item $N$ equations of motion are required to describe the system.
+    \item $N$ natural frequencies and mode shapes are obtained from the eigenvalue problem.
+\end{itemize}
+The general form of the equation of motion for an $N$ degree of freedom system is given by
+\begin{align*}
+    \mathbf{m_{\textbf{eff}}} \mathbf{\ddot{q}} + \mathbf{k_{\textbf{eff}}} \mathbf{q} = \mathbf{0}
+\end{align*}
+where 
+\begin{itemize}
+    \item $\mathbf{m_{\textbf{eff}}}$ is a $N \times N$ mass matrix,
+    \item $\mathbf{k_{\textbf{eff}}}$ is a $N \times N$ stiffness matrix,
+    \item $\mathbf{q}$ is a $N \times 1$ vector of generalized coordinates,
+\end{itemize}
