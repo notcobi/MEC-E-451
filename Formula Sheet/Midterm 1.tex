@@ -96,3 +96,30 @@ where
     \item $\mathbf{k_{\textbf{eff}}}$ is a $N \times N$ stiffness matrix,
     \item $\mathbf{q}$ is a $N \times 1$ vector of generalized coordinates,
 \end{itemize}
+
+\section{Transverse Vibrations in Cable}
+For a cable along the $x$-axis with deflected shape $y(x, t)$, the partial differential equation governing the transverse vibrations is given by
+\begin{align*}
+    \frac{\partial^2 y}{\partial x^2} = \frac{1}{c^2} \frac{\partial^2 y}{\partial t^2}
+\end{align*}
+where $c$ is the wave speed in the cable,
+\begin{align*}
+    c = \sqrt{\frac{T}{\rho}}
+\end{align*}
+where $T$ is the tension in the cable and $\rho$ is the mass density of the cable. By separation of variables, the general solution to the wave equation with pinned boundary conditions is given by
+\begin{align*}
+    y(x, t) = \sum_{n = 1}^{\infty} \left[A_n \sin\left(\frac{n c \pi}{L} t\right) + B_n \cos\left(\frac{n c \pi}{L} t\right)\right] \sin\left(\frac{n \pi}{L} x\right)
+\end{align*}
+where $L$ is the length of the cable. The coefficients $A_n$ and $B_n$ can be determined by the initial conditions using inner product. For initial conditions
+\begin{align*}
+    y(x, 0) = y_0(x) \quad \text{and} \quad \frac{\partial y}{\partial t}(x, 0) = \dot{y}_0(x)
+\end{align*}
+the coefficients are given by
+\begin{align*}
+    A_n &= \frac{2}{n \pi c} \int_0^L \dot{y}_0(x) \sin\left(\frac{n \pi}{L} x\right) dx \\
+    B_n &= \frac{2}{L} \int_0^L y_0(x) \sin\left(\frac{n \pi}{L} x\right) dx
+\end{align*}
+The resonant frequencies of the cable are given by
+\begin{align*}
+    p = \frac{n c \pi}{L}, \quad n = 1, 2, 3, \ldots
+\end{align*}

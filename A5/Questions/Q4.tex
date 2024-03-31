@@ -1,0 +1,79 @@
+\section{}
+\textit{A hollow shaft of length L contains an auger of negligible mass. As the speed of the auger is close to the natural frequency of the shaft it is necessary to change the natural frequency of the shaft by changing its outside diameter.}
+
+\subsection{}
+% Assuming the shaft has the cross-section shown, determine an expression for the 
+% ratio of the natural frequencies before and after the outer radius B is altered. Assume the
+% density of the material is 𝛾. Note that the second moment of area is:
+\textit{Determine an expression for the ratio of the natural frequencies before and after the outer radius B is altered. Assume the density of the material is $\gamma$. Note that the second moment of area is:}
+
+The mode shape of the shaft is given by Eq. (10.32),
+\begin{align*}
+    \mathbb{Y}(x) &= C_1 \sin \beta x + C_2 \cos \beta x + C_3 \sinh \beta x + C_4 \cosh \beta x 
+\end{align*}
+where the constants $C_1$, $C_2$, $C_3$, and $C_4$ are determined by the boundary conditions. Since the shaft is pinned-pinned, 
+\begin{align*}
+    \mathbb{Y}(0) &= 0 \\
+    \mathbb{Y}(L) &= 0 \\
+    \frac{d^2 \mathbb{Y}}{dx^2}(0) &= 0 \\
+    \frac{d^2 \mathbb{Y}}{dx^2}(L) &= 0
+\end{align*}
+Solving for the constants, first at $x = 0$,
+\begin{align*}
+    \mathbb{Y}(0) &= C_2 + C_4 = 0 \\
+    \frac{d^2 \mathbb{Y}}{dx^2}(0) &= - \beta^2  C_2 + \beta^2 C_4 = 0 \\
+    \implies C_2 &= C_4 = 0
+\end{align*}
+Simplifying the mode shape,
+\begin{align*}
+    \mathbb{Y}(x) &= C_1 \sin \beta x + C_3 \sinh \beta x
+\end{align*}
+Applying the boundary conditions at $x = L$,
+\begin{align}
+    \mathbb{Y}(L) &= C_1 \sin \beta L + C_3 \sinh \beta L = 0 \label{q4:bc_end_deflection} \\
+    \frac{d^2 \mathbb{Y}}{dx^2}(L) &= -\beta^2 C_1 \sin \beta L + \beta^2 C_3 \sinh \beta L = 0 \\
+    &= - C_1 \sin \beta L + C_3 \sinh \beta L = 0 \label{q4:bc_end_moment}
+\end{align}
+Performing (\ref{q4:bc_end_deflection}) + (\ref{q4:bc_end_moment}),
+\begin{align*}
+    C_3 \sinh \beta L &= 0
+\end{align*}
+Since the assumption that $\beta \neq 0$ was made to arrive at (\ref{q4:bc_end_moment}), $C_3 = 0$. Using this in (\ref{q4:bc_end_deflection}),
+\begin{align*}
+    C_1 \sin \beta L &= 0
+\end{align*}
+Letting $C_1 = 0$ would result in a trivial solution. Therefore, $\sin \beta L = 0$, which implies $\beta L = n \pi$ for $n \in \mathbb{N}$. The fundamental value ($n = 1$) for $\beta$ is then
+\begin{align*}
+    \beta &= \frac{1 \pi}{L}
+\end{align*}
+The natural frequency of the shaft is given by Eq. (10.30),
+\begin{align*}
+    p &= (\beta L)^2 \sqrt{\frac{EI}{\gamma A L^4}} \\
+    &= \left(n \pi \right)^2 \sqrt{\frac{EI}{\gamma A L^4}}
+\end{align*}
+Then for the fundamental frequency, 
+\begin{empheq}[box=\fbox]{align*}
+    p_1 &= \pi^2 \sqrt{\frac{EI}{\gamma A L^4}}
+\end{empheq}
+Then for $p_1/p_2$, where the outer radius is altered,
+\begin{empheq}[box=\fbox]{align*}
+    \frac{p_1}{p_2} &= \sqrt{\frac{I_1}{I_2}} \\
+    &= \sqrt{\frac{B_1^4 - A^4}{B_2^4 - A^4}} \\
+\end{empheq}
+
+\subsection{}
+% (5 pts) If 𝐴 = 0.1 m and 𝐵 is initially 0.112 m, what must the outer radius be in order 
+% that the frequency to be increased by 10%? For a simply supported beam, 𝑝 = 𝜋
+% 2√
+% 𝐸𝐼
+% 𝑀𝐿
+% 4
+\textit{If $A = 0.1$ m and $B$ is initially 0.112 m, what must the outer radius be in order that the frequency to be increased by 10\%? For a simply supported beam, $p = \pi^2 \sqrt{\frac{EI}{mL^4}}$}
+
+Given that the frequency must be increased by 10\%,
+\begin{align*}
+    \frac{p_2}{p_1} &= 1.1 \\
+    &= \sqrt{\frac{B_2^4 - A^4}{B_1^4 - A^4}} \\
+    \implies 1.1^2 &= \frac{B_2^4 - 0.1^4}{0.112^4 - 0.1^4} \\
+    \implies \Aboxed{B &= 0.114 \text{ m}}
+\end{align*}
